@@ -1,0 +1,3687 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>راهنمای تعاملی قالب‌های آماده GeminiNoteBook — Powered By SLA</title>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Light Theme: Warm Editorial Ivory + Ambient Depth */
+      --bg-page: #f8f6f0;
+      --bg-gradient-1: rgba(16, 118, 92, 0.06);
+      --bg-gradient-2: rgba(99, 63, 148, 0.06);
+      --bg-gradient-3: rgba(217, 144, 0, 0.05);
+
+      --surface-card: #ffffff;
+      --surface-subtle: #f2efe7;
+      --surface-elevated: #ffffff;
+      --surface-hover: #ebe6da;
+      --surface-glass: rgba(255, 255, 255, 0.85);
+
+      /* Ink */
+      --ink-primary: #15171c;
+      --ink-secondary: #4a505c;
+      --ink-muted: #6c7382;
+
+      /* Borders & Shadows */
+      --border-strong: #1b202b;
+      --border-subtle: #e2ddd1;
+      --border-input: #cfc9ba;
+      --shadow-sm: 0 2px 6px rgba(21, 23, 28, 0.04);
+      --shadow-md: 0 8px 24px rgba(21, 23, 28, 0.07);
+      --shadow-lg: 0 16px 40px rgba(21, 23, 28, 0.10);
+
+      /* Brand & Accents */
+      --accent-primary: #171d29;
+      --accent-primary-hover: #1e4e68;
+      --on-accent: #ffffff;
+      --accent-gold: #e8a80c;
+      --accent-gold-soft: #fdf2d6;
+      --accent-gold-ink: #7a4f04;
+      --focus-ring: #1e5f74;
+
+      /* Jewel-tone Tier Identity */
+      --tier-beginner: #0f765a;
+      --tier-beginner-bg: #e6f6f0;
+      --tier-beginner-border: #9fd9c5;
+
+      --tier-intermediate: #1d5b79;
+      --tier-intermediate-bg: #e7f2f8;
+      --tier-intermediate-border: #9fc6db;
+
+      --tier-advanced: #6b3fa0;
+      --tier-advanced-bg: #f2ebfa;
+      --tier-advanced-border: #cbb4e8;
+
+      --positive: #0f765a;
+      --danger: #b42318;
+
+      /* Offline-Safe Persian & Monospace Font Stacks */
+      --font-headline: 'Vazirmatn', 'IRANSansX', 'IRANSans', 'Segoe UI', 'Tahoma', system-ui, -apple-system, sans-serif;
+      --font-body: 'Vazirmatn', 'IRANSansX', 'IRANSans', 'Segoe UI', 'Tahoma', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Consolas', 'Courier New', monospace;
+
+      /* Radii & Spacing */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 18px;
+
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.25rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --dur-fast: 140ms;
+      --dur-mid: 240ms;
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+
+      /* Dark Theme: Deep Slate-Navy Editorial */
+      --bg-page: #0d1118;
+      --bg-gradient-1: rgba(34, 197, 148, 0.08);
+      --bg-gradient-2: rgba(168, 120, 240, 0.09);
+      --bg-gradient-3: rgba(56, 152, 212, 0.08);
+
+      --surface-card: #151b26;
+      --surface-subtle: #1c2433;
+      --surface-elevated: #1e2738;
+      --surface-hover: #242f42;
+      --surface-glass: rgba(21, 27, 38, 0.88);
+
+      --ink-primary: #f1f4f9;
+      --ink-secondary: #b7c0d0;
+      --ink-muted: #8b96ab;
+
+      --border-strong: #3b4860;
+      --border-subtle: #263144;
+      --border-input: #34425a;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.28);
+      --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.38);
+      --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.50);
+
+      --accent-primary: #f1f4f9;
+      --accent-primary-hover: #dce5f2;
+      --on-accent: #0d1118;
+      --accent-gold: #f2b705;
+      --accent-gold-soft: rgba(242, 183, 5, 0.16);
+      --accent-gold-ink: #f8d46b;
+      --focus-ring: #5ab4db;
+
+      --tier-beginner: #34d399;
+      --tier-beginner-bg: rgba(16, 185, 129, 0.14);
+      --tier-beginner-border: rgba(52, 211, 153, 0.35);
+
+      --tier-intermediate: #56b4e9;
+      --tier-intermediate-bg: rgba(56, 189, 248, 0.14);
+      --tier-intermediate-border: rgba(86, 180, 233, 0.35);
+
+      --tier-advanced: #c084fc;
+      --tier-advanced-bg: rgba(168, 85, 247, 0.16);
+      --tier-advanced-border: rgba(192, 132, 252, 0.38);
+
+      --positive: #34d399;
+      --danger: #f87171;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: clip;
+      background-color: var(--bg-page);
+      background-image:
+        radial-gradient(circle at 12% 8%, var(--bg-gradient-1) 0%, transparent 42%),
+        radial-gradient(circle at 88% 12%, var(--bg-gradient-2) 0%, transparent 44%),
+        radial-gradient(circle at 50% 85%, var(--bg-gradient-3) 0%, transparent 48%);
+      background-attachment: fixed;
+      color: var(--ink-primary);
+      font-family: var(--font-body);
+      font-size: clamp(0.9375rem, 0.91rem + 0.12vw, 1rem);
+      line-height: 1.7;
+      transition: background-color var(--dur-mid) var(--ease-out), color var(--dur-mid) var(--ease-out);
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    :focus-visible {
+      outline: 2.5px solid var(--focus-ring);
+      outline-offset: 2px;
+    }
+
+    .icon {
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+
+    .page-grid * {
+      min-width: 0;
+    }
+
+    /* Header */
+    .dossier-header {
+      background: var(--surface-glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-subtle);
+      border-top: 4px solid var(--accent-gold);
+      border-radius: var(--radius-xl);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .dossier-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: var(--space-sm);
+    }
+
+    .dossier-bar-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .dossier-pill {
+      background: var(--accent-gold);
+      color: #15171c;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.03em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .offline-pill {
+      background: var(--tier-beginner-bg);
+      color: var(--tier-beginner);
+      border: 1px solid var(--tier-beginner-border);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .dossier-meta {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    .theme-toggle-btn {
+      background: var(--surface-subtle);
+      color: var(--ink-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 36px;
+      transition: background-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+
+    .theme-toggle-btn:hover {
+      background: var(--surface-hover);
+      transform: translateY(-1px);
+    }
+
+    .title {
+      font-family: var(--font-headline);
+      font-size: clamp(1.55rem, 1.3rem + 1.1vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--ink-primary);
+      margin: 4px 0 0 0;
+    }
+
+    .standfirst {
+      font-size: clamp(0.98rem, 0.94rem + 0.2vw, 1.08rem);
+      font-weight: 500;
+      color: var(--ink-secondary);
+      margin: 0;
+      max-width: 78ch;
+    }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+
+    .kpi-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md) var(--space-lg);
+      text-align: right;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .kpi-card.is-active {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 2px var(--accent-primary), var(--shadow-md);
+    }
+
+    .kpi-card[data-tier="beginner"].is-active {
+      border-color: var(--tier-beginner);
+      box-shadow: 0 0 0 2px var(--tier-beginner), var(--shadow-md);
+    }
+
+    .kpi-card[data-tier="intermediate"].is-active {
+      border-color: var(--tier-intermediate);
+      box-shadow: 0 0 0 2px var(--tier-intermediate), var(--shadow-md);
+    }
+
+    .kpi-card[data-tier="advanced"].is-active {
+      border-color: var(--tier-advanced);
+      box-shadow: 0 0 0 2px var(--tier-advanced), var(--shadow-md);
+    }
+
+    .kpi-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-xs);
+    }
+
+    .kpi-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink-secondary);
+    }
+
+    .kpi-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--accent-primary);
+      flex-shrink: 0;
+    }
+
+    .kpi-dot.beginner { background: var(--tier-beginner); }
+    .kpi-dot.intermediate { background: var(--tier-intermediate); }
+    .kpi-dot.advanced { background: var(--tier-advanced); }
+
+    .kpi-value-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .kpi-value {
+      font-family: var(--font-headline);
+      font-size: clamp(1.6rem, 1.3rem + 0.8vw, 2.15rem);
+      font-weight: 800;
+      color: var(--ink-primary);
+      line-height: 1.1;
+    }
+
+    .kpi-share {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      background: var(--surface-subtle);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .kpi-mini-bar {
+      width: 100%;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--surface-subtle);
+      overflow: hidden;
+    }
+
+    .kpi-mini-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--accent-primary);
+    }
+
+    .kpi-mini-fill.beginner { background: var(--tier-beginner); }
+    .kpi-mini-fill.intermediate { background: var(--tier-intermediate); }
+    .kpi-mini-fill.advanced { background: var(--tier-advanced); }
+
+    .kpi-desc {
+      font-size: 0.81rem;
+      color: var(--ink-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Distribution Strip Panel */
+    .distribution-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
+      gap: var(--space-lg);
+      align-items: center;
+    }
+
+    .dist-block {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .dist-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .stacked-bar {
+      display: flex;
+      height: 14px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--surface-subtle);
+      gap: 3px;
+    }
+
+    .bar-seg {
+      height: 100%;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+
+    .bar-seg:hover {
+      opacity: 0.82;
+    }
+
+    .bar-seg.beginner { background: var(--tier-beginner); }
+    .bar-seg.intermediate { background: var(--tier-intermediate); }
+    .bar-seg.advanced { background: var(--tier-advanced); }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      font-size: 0.8rem;
+      color: var(--ink-secondary);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .domain-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .domain-chip {
+      background: var(--surface-subtle);
+      color: var(--ink-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 36px;
+      transition: all var(--dur-fast) var(--ease-out);
+    }
+
+    .domain-chip:hover {
+      background: var(--surface-hover);
+      transform: translateY(-1px);
+    }
+
+    .domain-chip.is-active {
+      background: var(--accent-primary);
+      color: var(--on-accent);
+      border-color: var(--accent-primary);
+    }
+
+    .domain-count {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      opacity: 0.82;
+    }
+
+    /* Controls Toolbar */
+    .controls-panel {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+      gap: var(--space-md);
+      align-items: end;
+    }
+
+    .control-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .control-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink-secondary);
+    }
+
+    .input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 12px;
+      color: var(--ink-muted);
+      pointer-events: none;
+    }
+
+    .text-input, .select-input {
+      width: 100%;
+      min-height: 42px;
+      padding: 6px 14px;
+      border: 1px solid var(--border-input);
+      border-radius: var(--radius-md);
+      background: var(--surface-subtle);
+      color: var(--ink-primary);
+      font-size: 0.88rem;
+      transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+    }
+
+    .text-input {
+      padding-right: 2.3rem;
+      padding-left: 2.3rem;
+    }
+
+    .text-input:focus, .select-input:focus {
+      background: var(--surface-card);
+      border-color: var(--focus-ring);
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      left: 6px;
+      background: transparent;
+      border: none;
+      color: var(--ink-muted);
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+    }
+
+    .clear-search-btn:hover {
+      background: var(--surface-hover);
+      color: var(--ink-primary);
+    }
+
+    .view-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn {
+      min-height: 42px;
+      padding: 6px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 1px solid transparent;
+      transition: all var(--dur-fast) var(--ease-out);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent-primary);
+      color: var(--on-accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--surface-subtle);
+      color: var(--ink-primary);
+      border-color: var(--border-subtle);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+    }
+
+    .btn-secondary.is-active {
+      background: var(--accent-gold);
+      color: #15171c;
+      border-color: var(--accent-gold);
+    }
+
+    .btn-sm {
+      min-height: 34px;
+      padding: 4px 11px;
+      font-size: 0.8rem;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Main Workspace Grid */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.75fr) minmax(340px, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .catalog-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+    }
+
+    .results-status {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding: 10px 16px;
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      font-size: 0.86rem;
+      color: var(--ink-secondary);
+    }
+
+    /* Level Section Header */
+    .level-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .level-banner {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-right: 5px solid var(--tier-beginner);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .level-banner[data-tier="intermediate"] {
+      border-right-color: var(--tier-intermediate);
+    }
+
+    .level-banner[data-tier="advanced"] {
+      border-right-color: var(--tier-advanced);
+    }
+
+    .level-banner-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .level-title {
+      font-family: var(--font-headline);
+      font-size: clamp(1.15rem, 1.05rem + 0.4vw, 1.38rem);
+      font-weight: 800;
+      margin: 0;
+      color: var(--ink-primary);
+    }
+
+    .tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+
+    .tier-badge.beginner {
+      background: var(--tier-beginner-bg);
+      color: var(--tier-beginner);
+      border-color: var(--tier-beginner-border);
+    }
+
+    .tier-badge.intermediate {
+      background: var(--tier-intermediate-bg);
+      color: var(--tier-intermediate);
+      border-color: var(--tier-intermediate-border);
+    }
+
+    .tier-badge.advanced {
+      background: var(--tier-advanced-bg);
+      color: var(--tier-advanced);
+      border-color: var(--tier-advanced-border);
+    }
+
+    .level-focus {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--tier-intermediate);
+      margin: 0;
+    }
+
+    .level-banner[data-tier="beginner"] .level-focus { color: var(--tier-beginner); }
+    .level-banner[data-tier="advanced"] .level-focus { color: var(--tier-advanced); }
+
+    .level-intro {
+      font-size: 0.88rem;
+      color: var(--ink-secondary);
+      margin: 0;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(285px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .template-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-top: 3px solid transparent;
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--dur-mid) var(--ease-out), box-shadow var(--dur-mid) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+      position: relative;
+    }
+
+    .template-card[data-tier="beginner"] { border-top-color: var(--tier-beginner); }
+    .template-card[data-tier="intermediate"] { border-top-color: var(--tier-intermediate); }
+    .template-card[data-tier="advanced"] { border-top-color: var(--tier-advanced); }
+
+    .template-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .template-card.is-selected {
+      box-shadow: 0 0 0 2px var(--accent-primary), var(--shadow-md);
+      background: var(--surface-subtle);
+    }
+
+    .card-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-xs);
+    }
+
+    .index-num {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.76rem;
+      color: var(--ink-secondary);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .domain-tag {
+      background: var(--accent-gold-soft);
+      color: var(--accent-gold-ink);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+
+    .card-persian-title {
+      font-family: var(--font-headline);
+      font-size: 1.04rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .card-latin-name {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--tier-intermediate);
+      background: var(--surface-subtle);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      margin: 0;
+      direction: ltr;
+      text-align: right;
+      word-break: break-word;
+    }
+
+    .card-summary {
+      font-size: 0.86rem;
+      color: var(--ink-secondary);
+      margin: 0;
+      flex-grow: 1;
+      line-height: 1.65;
+    }
+
+    .card-footer-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-xs);
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .card-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icon-toggle-btn {
+      min-width: 34px;
+      min-height: 34px;
+      padding: 4px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: var(--surface-subtle);
+      color: var(--ink-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--dur-fast) var(--ease-out);
+    }
+
+    .icon-toggle-btn:hover {
+      background: var(--surface-hover);
+      color: var(--ink-primary);
+    }
+
+    .icon-toggle-btn.is-bookmarked {
+      background: var(--accent-gold);
+      color: #15171c;
+      border-color: var(--accent-gold);
+    }
+
+    /* Reference Table View */
+    .table-wrap {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    .briefing-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 0.86rem;
+    }
+
+    .briefing-table thead th {
+      background: var(--surface-subtle);
+      color: var(--ink-primary);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--border-subtle);
+      white-space: nowrap;
+    }
+
+    .briefing-table tbody tr {
+      border-bottom: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: background-color var(--dur-fast) var(--ease-out);
+    }
+
+    .briefing-table tbody tr:hover {
+      background: var(--surface-subtle);
+    }
+
+    .briefing-table tbody tr.is-selected {
+      background: var(--accent-gold-soft);
+    }
+
+    .briefing-table td {
+      padding: 12px 14px;
+      vertical-align: top;
+    }
+
+    /* Sticky Aside: Inspector & Workflow Builder */
+    .inspector-aside {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      position: sticky;
+      top: var(--space-md);
+    }
+
+    .aside-box {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-top: 4px solid var(--accent-primary);
+      border-radius: var(--radius-xl);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .aside-box.workflow-box {
+      border-top-color: var(--tier-intermediate);
+    }
+
+    .aside-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 10px;
+    }
+
+    .aside-heading {
+      font-family: var(--font-headline);
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin: 0;
+      color: var(--ink-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .inspector-title {
+      font-family: var(--font-headline);
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 0;
+      line-height: 1.4;
+      color: var(--ink-primary);
+    }
+
+    .inspector-latin {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--tier-intermediate);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      width: 100%;
+    }
+
+    .detail-block {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .detail-block-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--accent-gold-ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .detail-block-text {
+      font-size: 0.88rem;
+      color: var(--ink-primary);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .inspector-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Workflow Builder */
+    .wf-progress-track {
+      width: 100%;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--surface-subtle);
+      overflow: hidden;
+    }
+
+    .wf-progress-fill {
+      height: 100%;
+      background: var(--positive);
+      border-radius: 999px;
+      transition: width var(--dur-mid) var(--ease-out);
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .preset-btn {
+      background: var(--surface-card);
+      border: 1px solid var(--border-input);
+      color: var(--ink-primary);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.77rem;
+      font-weight: 600;
+      cursor: pointer;
+      min-height: 32px;
+      transition: all var(--dur-fast) var(--ease-out);
+    }
+
+    .preset-btn:hover {
+      background: var(--accent-primary);
+      color: var(--on-accent);
+      border-color: var(--accent-primary);
+    }
+
+    .workflow-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .workflow-item {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .workflow-item.is-done {
+      opacity: 0.68;
+    }
+
+    .workflow-item.is-done .wf-name {
+      text-decoration: line-through;
+    }
+
+    .wf-check-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      flex: 1;
+    }
+
+    .wf-checkbox {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      accent-color: var(--positive);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .wf-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .wf-name {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .wf-latin {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      color: var(--ink-muted);
+    }
+
+    .wf-controls {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .wf-icon-btn {
+      background: transparent;
+      border: none;
+      color: var(--ink-muted);
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wf-icon-btn:hover {
+      background: var(--surface-hover);
+      color: var(--ink-primary);
+    }
+
+    .empty-box {
+      background: var(--surface-subtle);
+      border: 1px dashed var(--border-input);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      text-align: center;
+      color: var(--ink-muted);
+      font-size: 0.84rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .workflow-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Footer */
+    .source-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: var(--space-md);
+      margin-top: var(--space-sm);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: var(--accent-primary);
+      color: var(--on-accent);
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      font-size: 0.84rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      animation: toastIn 220ms var(--ease-out);
+    }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1024px) {
+      .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .distribution-card { grid-template-columns: 1fr; }
+      .controls-panel { grid-template-columns: 1fr 1fr; }
+      .workspace-grid { grid-template-columns: 1fr; }
+      .inspector-aside { position: static; }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid { padding: var(--space-md); gap: var(--space-md); }
+      .kpi-grid { grid-template-columns: 1fr; }
+      .controls-panel { grid-template-columns: 1fr; }
+      .view-actions { flex-wrap: wrap; }
+    }
+
+
+    /* Embedded SVG Illustrations */
+    .header-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: var(--space-lg);
+      align-items: center;
+    }
+
+    .header-hero-art {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      justify-self: center;
+      filter: drop-shadow(0 6px 16px rgba(21, 23, 28, 0.08));
+    }
+
+    .level-banner-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 128px;
+      gap: var(--space-md);
+      align-items: center;
+    }
+
+    .level-art-wrap {
+      width: 128px;
+      height: 84px;
+      border-radius: var(--radius-md);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 6px;
+    }
+
+    .card-visual-banner {
+      width: 100%;
+      height: 76px;
+      border-radius: var(--radius-md);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-visual-banner svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .inspector-visual-banner {
+      width: 100%;
+      height: 110px;
+      border-radius: var(--radius-md);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .inspector-visual-banner svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .header-layout { grid-template-columns: 1fr; }
+      .header-hero-art { display: none; }
+      .level-banner-grid { grid-template-columns: 1fr; }
+      .level-art-wrap { display: none; }
+    }
+
+
+    /* Dynamic GeminiNoteBook Ambient Animation Slot */
+    .gnb-ambient-slot {
+      display: none;
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      text-align: center;
+      min-height: 290px;
+      transition: opacity 280ms var(--ease-out), transform 280ms var(--ease-out), border-color 280ms var(--ease-out);
+      animation: gnbFadeIn 340ms var(--ease-out);
+    }
+
+    .gnb-ambient-slot.is-visible {
+      display: flex;
+    }
+
+    .gnb-ambient-slot::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, var(--bg-gradient-1) 0%, transparent 55%),
+        radial-gradient(circle at 80% 80%, var(--bg-gradient-2) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .gnb-ambient-slot.is-pulsing {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 2px rgba(232, 168, 12, 0.25), var(--shadow-md);
+    }
+
+    .gnb-anim-stage {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gnb-anim-caption {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .gnb-anim-brand {
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      letter-spacing: 0.03em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gnb-anim-brand-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      box-shadow: 0 0 10px var(--accent-gold);
+      animation: gnbDotBlink 2.2s ease-in-out infinite;
+    }
+
+    .gnb-anim-status {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    /* SVG Keyframe Animations */
+    .gnb-orbit-cw {
+      transform-origin: 160px 92px;
+      animation: gnbSpinCW 18s linear infinite;
+    }
+
+    .gnb-orbit-ccw {
+      transform-origin: 160px 92px;
+      animation: gnbSpinCCW 26s linear infinite;
+    }
+
+    .gnb-star-core {
+      transform-origin: 160px 92px;
+      animation: gnbStarPulse 3.2s ease-in-out infinite;
+    }
+
+    .gnb-flow-line {
+      stroke-dasharray: 6 6;
+      animation: gnbDashFlow 2.4s linear infinite;
+    }
+
+    .gnb-float-left {
+      animation: gnbFloatY 4.2s ease-in-out infinite;
+    }
+
+    .gnb-float-right {
+      animation: gnbFloatY 4.8s ease-in-out infinite reverse;
+    }
+
+    .gnb-ripple {
+      transform-origin: 160px 92px;
+      opacity: 0;
+    }
+
+    .gnb-ambient-slot.is-pulsing .gnb-ripple {
+      animation: gnbRippleWave 720ms var(--ease-out);
+    }
+
+    .gnb-ambient-slot.is-pulsing .gnb-star-core {
+      animation: gnbStarBoost 650ms var(--ease-out);
+    }
+
+    @keyframes gnbFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gnbSpinCW {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes gnbSpinCCW {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    @keyframes gnbStarPulse {
+      0%, 100% { transform: scale(1); opacity: 0.95; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    @keyframes gnbStarBoost {
+      0% { transform: scale(1) rotate(0deg); }
+      45% { transform: scale(1.28) rotate(22deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    @keyframes gnbDashFlow {
+      from { stroke-dashoffset: 24; }
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes gnbFloatY {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes gnbDotBlink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.8); }
+    }
+
+    @keyframes gnbRippleWave {
+      0% { transform: scale(0.5); opacity: 0.85; }
+      100% { transform: scale(2.1); opacity: 0; }
+    }
+
+    @media (max-width: 1024px) {
+      .gnb-ambient-slot.is-visible {
+        display: none;
+      }
+    }
+
+
+    /* Touch & Mobile Polish */
+    button, a, .template-card, .kpi-card, .domain-chip, .preset-btn, .briefing-table tbody tr {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    body.is-sheet-open {
+      overflow: hidden;
+    }
+
+    .mobile-sheet-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 17, 24, 0.56);
+      backdrop-filter: blur(4px);
+      z-index: 940;
+      opacity: 0;
+      transition: opacity 220ms var(--ease-out);
+    }
+
+    .mobile-sheet-backdrop.is-open {
+      display: block;
+      opacity: 1;
+    }
+
+    .sheet-drag-handle {
+      display: none;
+      width: 42px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--border-input);
+      margin: -4px auto 4px auto;
+      flex-shrink: 0;
+    }
+
+    .mobile-sheet-close {
+      display: none;
+      background: var(--surface-subtle);
+      color: var(--ink-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .mobile-sheet-close:hover {
+      background: var(--surface-hover);
+    }
+
+    .mobile-bottom-nav {
+      display: none;
+    }
+
+    .table-scroll-hint {
+      display: none;
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+      padding: 8px 12px;
+      background: var(--surface-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    @media (max-width: 1024px) {
+      .page-grid {
+        padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+      }
+
+      /* Turn Inspector & Workflow into smooth native-style Bottom Sheets on tablet/mobile */
+      .inspector-aside {
+        position: static;
+        gap: 0;
+      }
+
+      .aside-box {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 960;
+        max-height: 86dvh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 22px 22px 0 0;
+        padding: 16px 18px calc(22px + env(safe-area-inset-bottom, 0px)) 18px;
+        margin: 0;
+        box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.25);
+        transform: translateY(108%);
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform 280ms var(--ease-out), visibility 280ms var(--ease-out);
+      }
+
+      .aside-box.is-sheet-open {
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .sheet-drag-handle {
+        display: block;
+      }
+
+      .mobile-sheet-close {
+        display: inline-flex;
+      }
+
+      /* Floating Mobile Bottom Navigation Bar */
+      .mobile-bottom-nav {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 920;
+        background: var(--surface-glass);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-top: 1px solid var(--border-subtle);
+        padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)) 12px;
+        box-shadow: 0 -6px 24px rgba(21, 23, 28, 0.08);
+      }
+
+      .mobile-nav-btn {
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: var(--radius-md);
+        color: var(--ink-secondary);
+        padding: 6px 8px;
+        min-height: 48px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        position: relative;
+        transition: all var(--dur-fast) var(--ease-out);
+      }
+
+      .mobile-nav-btn.is-active {
+        background: var(--surface-subtle);
+        color: var(--ink-primary);
+        border-color: var(--border-subtle);
+      }
+
+      .mobile-nav-badge {
+        position: absolute;
+        top: 4px;
+        left: 14px;
+        background: var(--accent-gold);
+        color: #15171c;
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        font-weight: 800;
+        min-width: 19px;
+        height: 19px;
+        padding: 0 5px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .toast-container {
+        bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+        left: 12px;
+        right: 12px;
+        align-items: center;
+      }
+
+      .toast {
+        max-width: 100%;
+        justify-content: center;
+      }
+
+      .table-wrap {
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .table-scroll-hint {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: 12px 12px calc(92px + env(safe-area-inset-bottom, 0px)) 12px;
+        gap: 12px;
+      }
+
+      .dossier-header {
+        padding: 14px;
+        border-radius: var(--radius-lg);
+      }
+
+      .dossier-bar {
+        gap: 8px;
+        padding-bottom: 10px;
+      }
+
+      .dossier-bar .dossier-meta {
+        display: none;
+      }
+
+      .title {
+        font-size: 1.32rem;
+        line-height: 1.38;
+      }
+
+      .standfirst {
+        font-size: 0.88rem;
+        line-height: 1.6;
+      }
+
+      /* 2x2 Compact KPI Grid instead of 4 tall stacked cards */
+      .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .kpi-card {
+        padding: 12px;
+        gap: 6px;
+        border-radius: var(--radius-md);
+      }
+
+      .kpi-label {
+        font-size: 0.74rem;
+      }
+
+      .kpi-value {
+        font-size: 1.45rem;
+      }
+
+      .kpi-share {
+        font-size: 0.7rem;
+        padding: 1px 6px;
+      }
+
+      .kpi-desc {
+        font-size: 0.73rem;
+        line-height: 1.4;
+      }
+
+      /* Distribution & Horizontal Scrollable Domain Chips */
+      .distribution-card {
+        padding: 14px;
+        gap: 14px;
+        border-radius: var(--radius-md);
+      }
+
+      .domain-chips {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .domain-chips::-webkit-scrollbar {
+        display: none;
+      }
+
+      .domain-chip {
+        flex-shrink: 0;
+        min-height: 38px;
+        padding: 6px 12px;
+        font-size: 0.78rem;
+      }
+
+      /* Clean 2-column Controls Panel on mobile */
+      .controls-panel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 14px;
+        border-radius: var(--radius-md);
+      }
+
+      .controls-panel .control-field:first-child {
+        grid-column: 1 / -1;
+      }
+
+      /* Prevent iOS Safari zoom on input focus */
+      .text-input, .select-input {
+        font-size: 16px;
+        min-height: 44px;
+      }
+
+      .view-actions {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1.45fr 1fr 1fr;
+        gap: 6px;
+      }
+
+      .view-actions .btn {
+        padding: 6px 8px;
+        font-size: 0.78rem;
+        min-height: 42px;
+      }
+
+      .results-status {
+        padding: 10px 12px;
+        font-size: 0.82rem;
+      }
+
+      .level-banner {
+        padding: 14px;
+      }
+
+      .level-title {
+        font-size: 1.08rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .template-card {
+        padding: 14px;
+      }
+
+      .card-footer-actions .btn-sm,
+      .icon-toggle-btn {
+        min-height: 38px;
+      }
+
+      .briefing-table {
+        font-size: 0.8rem;
+        min-width: 620px;
+      }
+
+      .briefing-table thead th,
+      .briefing-table td {
+        padding: 10px;
+      }
+
+      .source-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 0.75rem;
+      }
+    }
+
+
+    /* Embedded Portrait beside Main Title */
+    .header-title-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .author-portrait-wrap {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--tier-intermediate));
+      box-shadow: 0 6px 18px rgba(21, 23, 28, 0.14);
+      flex-shrink: 0;
+      transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
+    }
+
+    .author-portrait-wrap:hover {
+      transform: scale(1.04);
+      box-shadow: 0 10px 24px rgba(21, 23, 28, 0.20);
+    }
+
+    .author-portrait-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      border: 2.5px solid var(--surface-card);
+    }
+
+    @media (max-width: 640px) {
+      .header-title-row {
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .author-portrait-wrap {
+        width: 64px;
+        height: 64px;
+        padding: 2.5px;
+      }
+      .author-portrait-img {
+        border-width: 2px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-grid">
+    <!-- Header -->
+    <header class="dossier-header">
+      <div class="dossier-bar">
+        <div class="dossier-bar-group">
+          <span class="dossier-pill">PLAYBOOK // GeminiNoteBook</span>
+          <span class="offline-pill">
+            <svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <bdi dir="ltr">Powered By SLA</bdi>
+          </span>
+          <span class="dossier-meta">دفترچه راهنمای قالب‌های آماده · تفکیک سه‌سطحی پیچیدگی</span>
+        </div>
+        <div class="dossier-bar-group">
+          <span class="dossier-meta">۳۴ قالب کاربردی · جست‌وجو، مقایسه و طراحی زنجیره مطالعه</span>
+          <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="تغییر حالت روشن و تاریک">
+            <span id="theme-icon"></span>
+            <span id="theme-label">حالت تاریک</span>
+          </button>
+        </div>
+      </div>
+      <div class="header-layout">
+        <div>
+          <div class="header-title-row">
+            <h1 class="title">راهنمای تعاملی قالب‌های آماده GeminiNoteBook</h1>
+            <div class="author-portrait-wrap">
+              <img class="author-portrait-img" src="data:image/jpeg;base64,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" alt="تصویر پروفایل" width="82" height="82">
+            </div>
+          </div>
+          <p class="standfirst" style="margin-top:8px;">
+            مرجع کامل ۳۴ قالب آماده پرامپت‌نویسی در سه سطح مبتدی، متوسط و پیشرفته؛ برای دریافت خروجی‌های دقیق، ساختاریافته و متکی بر منابع بارگذاری‌شده.
+          </p>
+        </div>
+        <svg class="header-hero-art" viewBox="0 0 240 130" fill="none" aria-hidden="true">
+          <rect x="10" y="10" width="220" height="110" rx="16" fill="var(--surface-subtle)" stroke="var(--border-subtle)" stroke-width="1.5"/>
+          <circle cx="52" cy="42" r="24" fill="var(--tier-beginner-bg)" stroke="var(--tier-beginner)" stroke-width="1.5"/>
+          <circle cx="120" cy="65" r="28" fill="var(--tier-intermediate-bg)" stroke="var(--tier-intermediate)" stroke-width="1.8"/>
+          <circle cx="188" cy="46" r="22" fill="var(--tier-advanced-bg)" stroke="var(--tier-advanced)" stroke-width="1.5"/>
+          <path d="M74 49 L94 58 M146 58 L167 51" stroke="var(--accent-gold)" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
+          <rect x="40" y="34" width="24" height="16" rx="3" fill="var(--tier-beginner)" opacity="0.85"/>
+          <path d="M45 40 H59 M45 45 H54" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <polygon points="120,48 135,57 120,66 105,57" fill="var(--tier-intermediate)"/>
+          <path d="M105 65 L120 74 L135 65" stroke="var(--tier-intermediate)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M105 72 L120 81 L135 72" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="188,33 199,55 177,55" fill="var(--tier-advanced)" opacity="0.88"/>
+          <circle cx="188" cy="47" r="3" fill="#fff"/>
+          <rect x="44" y="96" width="152" height="8" rx="4" fill="var(--border-subtle)"/>
+          <rect x="44" y="96" width="42" height="8" rx="4" fill="var(--tier-beginner)"/>
+          <rect x="89" y="96" width="76" height="8" rx="4" fill="var(--tier-intermediate)"/>
+          <rect x="168" y="96" width="28" height="8" rx="4" fill="var(--tier-advanced)"/>
+        </svg>
+      </div>
+    </header>
+
+    <!-- KPI Summary Row -->
+    <section aria-label="آمار کلی سطوح قالب‌ها" class="kpi-grid">
+      <button type="button" class="kpi-card is-active" id="kpi-all" data-tier="all" onclick="setLevelFilter('all')">
+        <div class="kpi-top">
+          <span class="kpi-label">کل مجموعه قالب‌ها</span>
+          <span class="kpi-dot" aria-hidden="true"></span>
+        </div>
+        <div class="kpi-value-row">
+          <span class="kpi-value">۳۴</span>
+          <span class="kpi-share">۱۰۰٪</span>
+        </div>
+        <div class="kpi-mini-bar"><div class="kpi-mini-fill" style="width: 100%;"></div></div>
+        <p class="kpi-desc">نمایش یکپارچه هر سه سطح پیچیدگی</p>
+      </button>
+
+      <button type="button" class="kpi-card" id="kpi-beginner" data-tier="beginner" onclick="setLevelFilter('beginner')">
+        <div class="kpi-top">
+          <span class="kpi-label">سطح ۱ · مبتدی (Beginner)</span>
+          <span class="kpi-dot beginner" aria-hidden="true"></span>
+        </div>
+        <div class="kpi-value-row">
+          <span class="kpi-value">۹</span>
+          <span class="kpi-share">۲۶٪</span>
+        </div>
+        <div class="kpi-mini-bar"><div class="kpi-mini-fill beginner" style="width: 26.5%;"></div></div>
+        <p class="kpi-desc">خلاصه‌سازی سریع، رتبه‌بندی و یادگیری فعال</p>
+      </button>
+
+      <button type="button" class="kpi-card" id="kpi-intermediate" data-tier="intermediate" onclick="setLevelFilter('intermediate')">
+        <div class="kpi-top">
+          <span class="kpi-label">سطح ۲ · متوسط (Intermediate)</span>
+          <span class="kpi-dot intermediate" aria-hidden="true"></span>
+        </div>
+        <div class="kpi-value-row">
+          <span class="kpi-value">۱۸</span>
+          <span class="kpi-share">۵۳٪</span>
+        </div>
+        <div class="kpi-mini-bar"><div class="kpi-mini-fill intermediate" style="width: 52.9%;"></div></div>
+        <p class="kpi-desc">مقایسه متقاطع، سنتز جامع و تحلیل فنی</p>
+      </button>
+
+      <button type="button" class="kpi-card" id="kpi-advanced" data-tier="advanced" onclick="setLevelFilter('advanced')">
+        <div class="kpi-top">
+          <span class="kpi-label">سطح ۳ · پیشرفته (Advanced)</span>
+          <span class="kpi-dot advanced" aria-hidden="true"></span>
+        </div>
+        <div class="kpi-value-row">
+          <span class="kpi-value">۷</span>
+          <span class="kpi-share">۲۱٪</span>
+        </div>
+        <div class="kpi-mini-bar"><div class="kpi-mini-fill advanced" style="width: 20.6%;"></div></div>
+        <p class="kpi-desc">پردازش چندلایه، واسازی فرضیات و تحلیل شکاف</p>
+      </button>
+    </section>
+
+    <!-- Distribution & Domain Quick Filter -->
+    <section aria-label="توزیع موضوعی و سطوح" class="distribution-card">
+      <div class="dist-block">
+        <div class="dist-title">
+          <span>سهم هر سطح پیچیدگی از کل ۳۴ قالب</span>
+          <span class="dossier-meta">کلیک برای فیلتر</span>
+        </div>
+        <div class="stacked-bar" role="group" aria-label="نمودار توزیع سطوح">
+          <button type="button" class="bar-seg beginner" style="width: 26.5%;" title="سطح مبتدی: ۹ قالب" onclick="setLevelFilter('beginner')"></button>
+          <button type="button" class="bar-seg intermediate" style="width: 52.9%;" title="سطح متوسط: ۱۸ قالب" onclick="setLevelFilter('intermediate')"></button>
+          <button type="button" class="bar-seg advanced" style="width: 20.6%;" title="سطح پیشرفته: ۷ قالب" onclick="setLevelFilter('advanced')"></button>
+        </div>
+        <div class="legend-row">
+          <span class="legend-item"><span class="kpi-dot beginner" aria-hidden="true"></span> مبتدی (۹)</span>
+          <span class="legend-item"><span class="kpi-dot intermediate" aria-hidden="true"></span> متوسط (۱۸)</span>
+          <span class="legend-item"><span class="kpi-dot advanced" aria-hidden="true"></span> پیشرفته (۷)</span>
+        </div>
+      </div>
+
+      <div class="dist-block">
+        <div class="dist-title">
+          <span>فیلتر سریع بر اساس کاربرد عملیاتی</span>
+          <span class="dossier-meta" id="active-domain-hint">همه حوزه‌ها</span>
+        </div>
+        <div class="domain-chips" id="domain-chips"></div>
+      </div>
+    </section>
+
+    <!-- Search & View Controls -->
+    <section aria-label="ابزارهای جست‌وجو و نمایش" class="controls-panel">
+      <div class="control-field">
+        <label class="control-label" for="search-input">جست‌وجو در نام فارسی، نام لاتین یا کاربرد</label>
+        <div class="input-wrap">
+          <span class="search-icon" aria-hidden="true">
+            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </span>
+          <input type="text" id="search-input" class="text-input" placeholder="مثال: پادکست، مقایسه، Devil، مهندسی داده..." oninput="handleSearchInput(this.value)">
+          <button type="button" id="clear-search-btn" class="clear-search-btn" aria-label="پاک کردن جست‌وجو" onclick="clearSearch()" style="display: none;">
+            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="control-field">
+        <label class="control-label" for="level-select">سطح پیچیدگی</label>
+        <select id="level-select" class="select-input" onchange="setLevelFilter(this.value)">
+          <option value="all">همه سطوح (۳۴ قالب)</option>
+          <option value="beginner">سطح ۱ — مبتدی (۹ قالب)</option>
+          <option value="intermediate">سطح ۲ — متوسط (۱۸ قالب)</option>
+          <option value="advanced">سطح ۳ — پیشرفته (۷ قالب)</option>
+        </select>
+      </div>
+
+      <div class="control-field">
+        <label class="control-label" for="domain-select">حوزه کاربردی</label>
+        <select id="domain-select" class="select-input" onchange="setDomainFilter(this.value)">
+          <option value="all">همه حوزه‌ها (۳۴)</option>
+          <option value="خلاصه‌سازی و سنتز">خلاصه‌سازی و سنتز</option>
+          <option value="یادگیری و پژوهش">یادگیری و پژوهش</option>
+          <option value="مهندسی و فنی">مهندسی و فنی</option>
+          <option value="تحلیل انتقادی و راستی‌آزمایی">تحلیل انتقادی و راستی‌آزمایی</option>
+          <option value="مدیریت و راهبرد">مدیریت و راهبرد</option>
+        </select>
+      </div>
+
+      <div class="view-actions">
+        <button type="button" id="btn-bookmarks-only" class="btn btn-secondary" onclick="toggleBookmarksOnly()" aria-pressed="false">
+          <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+          <span>نشان‌شده‌ها (<span id="bookmark-count">۰</span>)</span>
+        </button>
+        <button type="button" id="btn-view-cards" class="btn btn-secondary is-active" onclick="setViewMode('cards')" aria-pressed="true">
+          <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+          <span>کارت</span>
+        </button>
+        <button type="button" id="btn-view-table" class="btn btn-secondary" onclick="setViewMode('table')" aria-pressed="false">
+          <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+          <span>جدول</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Workspace -->
+    <main class="workspace-grid">
+      <!-- Primary: Catalog -->
+      <div class="catalog-column">
+        <div class="results-status">
+          <span id="results-summary">نمایش ۳۴ قالب از ۳۴ قالب</span>
+          <button type="button" id="reset-filters-btn" class="btn btn-secondary btn-sm" onclick="resetAllFilters()" style="display: none;">
+            بازنشانی فیلترها
+          </button>
+        </div>
+
+        <div id="catalog-container"></div>
+        <div id="catalog-ambient-slot" class="gnb-ambient-slot" aria-label="معرفی گرافیکی GeminiNoteBook"></div>
+      </div>
+
+      <!-- Sticky Aside: Inspector + Workflow Builder -->
+      <aside class="inspector-aside" aria-label="جزئیات قالب و سازنده زنجیره کاری">
+        <!-- Template Inspector -->
+        <section class="aside-box" id="inspector-panel" aria-live="polite">
+          <div class="sheet-drag-handle" aria-hidden="true"></div>
+          <div class="aside-header">
+            <h2 class="aside-heading">
+              <svg class="icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+              شناسنامه عملیاتی قالب
+            </h2>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="index-num" id="insp-index">#01</span>
+              <button type="button" class="mobile-sheet-close" onclick="closeMobileSheet()" aria-label="بستن پنجره">
+                <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="inspector-content"></div>
+        </section>
+
+        <!-- Workflow Builder -->
+        <section class="aside-box workflow-box" id="workflow-panel" aria-label="سازنده زنجیره مطالعاتی سفارشی">
+          <div class="sheet-drag-handle" aria-hidden="true"></div>
+          <div class="aside-header">
+            <h2 class="aside-heading">
+              <svg class="icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              سازنده زنجیره مطالعه و تحلیل
+            </h2>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="index-num" id="wf-progress-badge">۰ گام</span>
+              <button type="button" class="mobile-sheet-close" onclick="closeMobileSheet()" aria-label="بستن پنجره">
+                <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="wf-progress-track" aria-hidden="true">
+            <div class="wf-progress-fill" id="wf-progress-fill" style="width: 0%;"></div>
+          </div>
+
+          <p class="kpi-desc">
+            قالب‌های سطوح مختلف را ترکیب کنید تا یک فرآیند مطالعاتی یا ماتریس کاربردی سفارشی برای موضوع خود بسازید.
+          </p>
+
+          <div class="detail-block">
+            <span class="detail-block-label">الگوهای آماده زنجیره کاری:</span>
+            <div class="preset-row">
+              <button type="button" class="preset-btn" onclick="loadWorkflowPreset('research')">پژوهش سریع</button>
+              <button type="button" class="preset-btn" onclick="loadWorkflowPreset('engineering')">ممیزی فنی و معماری</button>
+              <button type="button" class="preset-btn" onclick="loadWorkflowPreset('critical')">راستی‌آزمایی انتقادی</button>
+            </div>
+          </div>
+
+          <div id="workflow-container"></div>
+
+          <div class="workflow-footer" id="workflow-footer" style="display: none;">
+            <button type="button" class="btn btn-primary btn-sm" onclick="exportWorkflow()">
+              <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              <span>خروجی متنی زنجیره</span>
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" id="clear-wf-btn" onclick="clearWorkflow(this)">
+              پاک‌سازی زنجیره
+            </button>
+          </div>
+        </section>
+        <div id="aside-ambient-slot" class="gnb-ambient-slot" aria-label="معرفی گرافیکی GeminiNoteBook"></div>
+      </aside>
+    </main>
+
+    <!-- Sources Footer -->
+    <footer class="source-footer">
+      <span>منابع: سند فهرست قالب‌های آماده (Built-in Templates.docx) و یادداشت اسلاید دک راهنمای قالب‌های آماده GeminiNoteBook.</span>
+      <span>تمام نام‌های لاتین و شرح عملکردها عیناً بر پایه مستندات منبع تنظیم شده‌اند.</span>
+    </footer>
+  </div>
+
+  <!-- Mobile Bottom-Sheet Backdrop & Floating Navigation Bar -->
+  <div id="mobile-sheet-backdrop" class="mobile-sheet-backdrop" onclick="closeMobileSheet()" aria-hidden="true"></div>
+  <nav class="mobile-bottom-nav" aria-label="ناوبری سریع موبایل">
+    <button type="button" id="mnav-catalog" class="mobile-nav-btn is-active" onclick="mobileGoCatalog()">
+      <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+      <span>قالب‌ها</span>
+    </button>
+    <button type="button" id="mnav-inspector" class="mobile-nav-btn" onclick="openMobileSheet('inspector')">
+      <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+      <span>شناسنامه قالب</span>
+    </button>
+    <button type="button" id="mnav-workflow" class="mobile-nav-btn" onclick="openMobileSheet('workflow')">
+      <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      <span>زنجیره مطالعه</span>
+      <span id="mobile-wf-badge" class="mobile-nav-badge" style="display: none;">۰</span>
+    </button>
+  </nav>
+
+  <!-- Toast Notifications -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script>
+    const ICONS = {
+      sun: `<svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`,
+      moon: `<svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`,
+      bookmark: `<svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>`,
+      copy: `<svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>`,
+      plus: `<svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>`,
+      check: `<svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`,
+      chevronUp: `<svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>`,
+      chevronDown: `<svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>`,
+      trash: `<svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>`,
+      info: `<svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>`,
+      book: `<svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>`,
+      clock: `<svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`
+    };
+
+
+    const LEVEL_ART = {
+      beginner: `<svg viewBox="0 0 120 76" fill="none" aria-hidden="true">
+        <rect x="4" y="4" width="112" height="68" rx="10" fill="var(--tier-beginner-bg)"/>
+        <circle cx="34" cy="38" r="18" fill="var(--surface-card)" stroke="var(--tier-beginner)" stroke-width="2"/>
+        <path d="M34 26 L38 34 L46 38 L38 42 L34 50 L30 42 L22 38 L30 34 Z" fill="var(--tier-beginner)"/>
+        <rect x="62" y="20" width="44" height="9" rx="4.5" fill="var(--tier-beginner)" opacity="0.85"/>
+        <rect x="62" y="34" width="34" height="7" rx="3.5" fill="var(--tier-beginner)" opacity="0.45"/>
+        <rect x="62" y="46" width="40" height="7" rx="3.5" fill="var(--tier-beginner)" opacity="0.3"/>
+      </svg>`,
+      intermediate: `<svg viewBox="0 0 120 76" fill="none" aria-hidden="true">
+        <rect x="4" y="4" width="112" height="68" rx="10" fill="var(--tier-intermediate-bg)"/>
+        <rect x="16" y="18" width="28" height="40" rx="5" fill="var(--surface-card)" stroke="var(--tier-intermediate)" stroke-width="1.8"/>
+        <rect x="76" y="18" width="28" height="40" rx="5" fill="var(--surface-card)" stroke="var(--tier-intermediate)" stroke-width="1.8"/>
+        <path d="M44 30 H76 M44 46 H76" stroke="var(--tier-intermediate)" stroke-width="2" stroke-dasharray="4 3"/>
+        <circle cx="60" cy="38" r="10" fill="var(--tier-intermediate)"/>
+        <path d="M56 38 H64 M60 34 V42" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      </svg>`,
+      advanced: `<svg viewBox="0 0 120 76" fill="none" aria-hidden="true">
+        <rect x="4" y="4" width="112" height="68" rx="10" fill="var(--tier-advanced-bg)"/>
+        <polygon points="60,12 92,30 60,48 28,30" fill="var(--tier-advanced)" opacity="0.9"/>
+        <path d="M28 40 L60 58 L92 40" stroke="var(--tier-advanced)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 50 L60 66 L92 50" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="60" cy="30" r="5" fill="#fff"/>
+      </svg>`
+    };
+
+    function getCardVisualSvg(item) {
+      const tierVar = item.level === `beginner`
+        ? `var(--tier-beginner)`
+        : (item.level === `intermediate` ? `var(--tier-intermediate)` : `var(--tier-advanced)`);
+      const tierBg = item.level === `beginner`
+        ? `var(--tier-beginner-bg)`
+        : (item.level === `intermediate` ? `var(--tier-intermediate-bg)` : `var(--tier-advanced-bg)`);
+
+      if (item.domain === `خلاصه‌سازی و سنتز`) {
+        return `<svg viewBox="0 0 280 76" fill="none" aria-hidden="true">
+          <rect width="280" height="76" fill="${tierBg}"/>
+          <circle cx="242" cy="14" r="36" fill="${tierVar}" opacity="0.09"/>
+          <rect x="24" y="16" width="54" height="10" rx="5" fill="${tierVar}" opacity="0.35"/>
+          <rect x="24" y="33" width="44" height="10" rx="5" fill="${tierVar}" opacity="0.55"/>
+          <rect x="24" y="50" width="54" height="10" rx="5" fill="${tierVar}" opacity="0.35"/>
+          <path d="M88 21 L126 38 L88 55" stroke="${tierVar}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+          <rect x="136" y="16" width="118" height="44" rx="8" fill="var(--surface-card)" stroke="${tierVar}" stroke-width="1.6"/>
+          <circle cx="156" cy="38" r="9" fill="${tierVar}"/>
+          <path d="M153 38 L155.5 40.5 L160 35.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="174" y="28" width="66" height="6" rx="3" fill="${tierVar}" opacity="0.8"/>
+          <rect x="174" y="40" width="46" height="6" rx="3" fill="${tierVar}" opacity="0.35"/>
+        </svg>`;
+      }
+      if (item.domain === `یادگیری و پژوهش`) {
+        return `<svg viewBox="0 0 280 76" fill="none" aria-hidden="true">
+          <rect width="280" height="76" fill="${tierBg}"/>
+          <circle cx="40" cy="64" r="34" fill="${tierVar}" opacity="0.09"/>
+          <path d="M36 52 Q84 16 140 38 T244 24" stroke="${tierVar}" stroke-width="2.2" stroke-dasharray="5 4" fill="none"/>
+          <circle cx="48" cy="46" r="10" fill="var(--surface-card)" stroke="${tierVar}" stroke-width="2"/>
+          <circle cx="140" cy="38" r="13" fill="${tierVar}"/>
+          <path d="M135 38 H145 M140 33 V43" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="232" cy="27" r="11" fill="var(--surface-card)" stroke="var(--accent-gold)" stroke-width="2.2"/>
+          <circle cx="232" cy="27" r="4" fill="var(--accent-gold)"/>
+        </svg>`;
+      }
+      if (item.domain === `مهندسی و فنی`) {
+        return `<svg viewBox="0 0 280 76" fill="none" aria-hidden="true">
+          <rect width="280" height="76" fill="${tierBg}"/>
+          <path d="M0 20 H280 M0 40 H280 M0 60 H280 M70 0 V76 M140 0 V76 M210 0 V76" stroke="${tierVar}" stroke-opacity="0.09" stroke-width="1"/>
+          <rect x="28" y="18" width="64" height="40" rx="7" fill="var(--surface-card)" stroke="${tierVar}" stroke-width="1.6"/>
+          <path d="M46 32 L38 38 L46 44 M74 32 L82 38 L74 44 M64 30 L56 46" stroke="${tierVar}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M92 38 H126" stroke="${tierVar}" stroke-width="2" stroke-dasharray="4 3"/>
+          <rect x="126" y="22" width="46" height="32" rx="6" fill="${tierVar}"/>
+          <circle cx="149" cy="38" r="6" fill="#fff" opacity="0.9"/>
+          <path d="M172 38 H206" stroke="var(--accent-gold)" stroke-width="2"/>
+          <rect x="206" y="18" width="46" height="40" rx="7" fill="var(--surface-card)" stroke="var(--accent-gold)" stroke-width="1.6"/>
+          <rect x="216" y="28" width="26" height="6" rx="3" fill="${tierVar}" opacity="0.7"/>
+          <rect x="216" y="40" width="18" height="6" rx="3" fill="var(--accent-gold)"/>
+        </svg>`;
+      }
+      if (item.domain === `تحلیل انتقادی و راستی‌آزمایی`) {
+        return `<svg viewBox="0 0 280 76" fill="none" aria-hidden="true">
+          <rect width="280" height="76" fill="${tierBg}"/>
+          <circle cx="140" cy="38" r="24" fill="var(--surface-card)" stroke="${tierVar}" stroke-width="2"/>
+          <circle cx="140" cy="38" r="14" stroke="${tierVar}" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <path d="M157 55 L170 66" stroke="${tierVar}" stroke-width="3" stroke-linecap="round"/>
+          <path d="M42 26 H98 M42 38 H86 M42 50 H94" stroke="${tierVar}" stroke-width="2.5" stroke-linecap="round" opacity="0.45"/>
+          <path d="M186 26 H238 M194 38 H238 M186 50 H226" stroke="var(--accent-gold)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+          <circle cx="140" cy="38" r="5" fill="${tierVar}"/>
+        </svg>`;
+      }
+      // مدیریت و راهبرد
+      return `<svg viewBox="0 0 280 76" fill="none" aria-hidden="true">
+        <rect width="280" height="76" fill="${tierBg}"/>
+        <rect x="28" y="42" width="26" height="20" rx="4" fill="${tierVar}" opacity="0.35"/>
+        <rect x="64" y="30" width="26" height="32" rx="4" fill="${tierVar}" opacity="0.6"/>
+        <rect x="100" y="18" width="26" height="44" rx="4" fill="${tierVar}"/>
+        <path d="M150 48 L178 28 L206 38 L242 18" stroke="var(--accent-gold)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="178" cy="28" r="4.5" fill="var(--surface-card)" stroke="${tierVar}" stroke-width="2"/>
+        <circle cx="206" cy="38" r="4.5" fill="var(--surface-card)" stroke="${tierVar}" stroke-width="2"/>
+        <circle cx="242" cy="18" r="5.5" fill="var(--accent-gold)"/>
+      </svg>`;
+    }
+
+    const LEVELS = {
+      beginner: {
+        id: `beginner`,
+        titleFa: `سطح ۱ — قالب‌های مبتدی (Beginner)`,
+        shortFa: `مبتدی`,
+        focusFa: `تمرکز: خلاصه‌سازی سریع، رتبه‌بندی، استخراج اولیه و یادگیری فعال`,
+        introFa: `این قالب‌ها برای شروع کار با منابع، طبقه‌بندی مقدماتی، یادگیری فعال و دریافت سریع چکیده‌های کاربردی بدون درگیر شدن با تنظیمات پیچیده طراحی شده‌اند.`,
+        badgeClass: `beginner`
+      },
+      intermediate: {
+        id: `intermediate`,
+        titleFa: `سطح ۲ — قالب‌های متوسط (Intermediate)`,
+        shortFa: `متوسط`,
+        focusFa: `تمرکز: مقایسه‌گری متقاطع، سنتز جامع، بررسی الگوها و تحلیل فنی`,
+        introFa: `این مجموعه ابزارها برای مقایسه چندگانه اسناد، بررسی تضادها، طراحی پروژه‌های عملی و ترکیب تحلیلی مطالب به‌کار می‌روند.`,
+        badgeClass: `intermediate`
+      },
+      advanced: {
+        id: `advanced`,
+        titleFa: `سطح ۳ — قالب‌های پیشرفته (Advanced)`,
+        shortFa: `پیشرفته`,
+        focusFa: `تمرکز: پردازش چندلایه، واسازی فرضیات، شبیه‌سازی محاوره‌ای و تحلیل شکاف`,
+        introFa: `این قالب‌ها سطحی عمیق از استدلال، بازبینی چندمرحله‌ای، واسازی انتقادی و تحلیل‌های زیرساختی را برای کاربران حرفه‌ای فراهم می‌کنند.`,
+        badgeClass: `advanced`
+      }
+    };
+
+    const TEMPLATES = [
+      // Beginner (1 - 9)
+      {
+        id: `tpl-01`,
+        globalNum: 1,
+        levelNum: 1,
+        level: `beginner`,
+        latin: `Interest-Driven Summarization`,
+        persian: `خلاصه‌سازی مبتنی بر علاقه و هدف`,
+        domain: `خلاصه‌سازی و سنتز`,
+        deckDesc: `خلاصه‌سازی منابع بر پایه علایق، نیازها یا اهداف ویژه کاربر و برجسته‌سازی اختصاصی بخش‌های حائز اهمیت به جای خلاصه عمومی.`,
+        docDesc: `قالب «Interest-Driven Summarization» برای خلاصه‌سازی منابع بر اساس علایق، نیازها یا اهداف مشخصِ شما به کار می‌رود و به جای یک خلاصه عمومی، فقط بخش‌هایی را برجسته می‌کند که برای شما اهمیت دارد.`,
+        bestUse: `شروع مطالعه متمرکز هنگام مواجهه با مقالات طولانی یا گزارش‌های چندموضوعی.`
+      },
+      {
+        id: `tpl-02`,
+        globalNum: 2,
+        levelNum: 2,
+        level: `beginner`,
+        latin: `Active Learning Session Planner`,
+        persian: `برنامه‌ریز مطالعه فعال`,
+        domain: `یادگیری و پژوهش`,
+        deckDesc: `طراحی جلسه مطالعه پویا شامل پرسش و پاسخ، تمرین و مرور به‌منظور خروج فرایند یادگیری از حالت انفعالی.`,
+        docDesc: `یک جلسه مطالعه فعال (شامل پرسش و پاسخ، تمرین و مرور) بر اساس منابع برنامه‌ریزی می‌کند تا مطالعه شما از حالت منفعل خارج شود.`,
+        bestUse: `آمادگی آزمون، مرور جزوه‌های درسی و تثبیت مفاهیم تازه آموخته‌شده.`
+      },
+      {
+        id: `tpl-03`,
+        globalNum: 3,
+        levelNum: 3,
+        level: `beginner`,
+        latin: `Essential Questions Generator`,
+        persian: `استخراج‌کننده پرسش‌های بنیادین`,
+        domain: `یادگیری و پژوهش`,
+        deckDesc: `استخراج کلیدی‌ترین و بنیادی‌ترین پرسش‌هایی که با مطالعه منابع باید به پاسخ آن‌ها رسید؛ مناسب برای آغاز پژوهش.`,
+        docDesc: `کلیدی‌ترین و بنیادی‌ترین سؤالاتی را که با خواندن منابع باید به پاسخ آن‌ها برسید استخراج می‌کند و برای شروع تحقیق یا مطالعه بسیار کاربردی است.`,
+        bestUse: `تدوین چارچوب اولیه پژوهش پیش از ورود به جزئیات فنی اسناد.`
+      },
+      {
+        id: `tpl-04`,
+        globalNum: 4,
+        levelNum: 4,
+        level: `beginner`,
+        latin: `Meeting Summary Generator`,
+        persian: `خلاصه‌ساز جلسات`,
+        domain: `مدیریت و راهبرد`,
+        deckDesc: `تبدیل متن پیاده‌شده (ترنسکریپت) یا یادداشت جلسات به صورت‌جلسه منظم شامل مصوبات، وظایف محول‌شده (Action Items) و نکات کلیدی.`,
+        docDesc: `متن پیاده‌شده (Transcript) یا یادداشت‌های جلسات را به یک صورت‌جلسه منظم شامل تصمیمات گرفته‌شده، وظایف محول‌شده (Action Items) و نکات کلیدی تبدیل می‌کند.`,
+        bestUse: `مستندسازی سریع جلسات تیمی، مصاحبه‌ها و کارگاه‌های هماهنگی.`
+      },
+      {
+        id: `tpl-05`,
+        globalNum: 5,
+        levelNum: 5,
+        level: `beginner`,
+        latin: `Global Synthesis - Compact Version`,
+        persian: `سنتز سراسری (نسخه فشرده)`,
+        domain: `خلاصه‌سازی و سنتز`,
+        deckDesc: `ارائه جمع‌بندی یکپارچه، سریع و موجز از تمام منابع موجود در نوت‌بوک در قالب چند پاراگراف کوتاه.`,
+        docDesc: `یک جمع‌بندی کلی، سریع و فشرده از تمام منابع موجود در نوت‌بوک را در چند پاراگراف کوتاه ارائه می‌دهد.`,
+        bestUse: `دریافت تصویر کلان از ده‌ها منبع بارگذاری‌شده در کوتاه‌ترین زمان ممکن.`
+      },
+      {
+        id: `tpl-06`,
+        globalNum: 6,
+        levelNum: 6,
+        level: `beginner`,
+        latin: `Optimized Source Discovery`,
+        persian: `کشف بهینه منابع تکمیلی`,
+        domain: `یادگیری و پژوهش`,
+        deckDesc: `شناسایی و تشخیص ارزشمندترین بخش‌های منابع فعلی جهت تعمیق کاوش و یافتن بهترین مسیر برای تهیه منابع تکمیلی.`,
+        docDesc: `به شما کمک می‌کند تا بهترین منابع تکمیلی را پیدا کنید یا تشخیص دهید که در بین منابع فعلی، کدام بخش‌ها ارزش جست‌وجو و بررسی بیشتری دارند.`,
+        bestUse: `اولویت‌بندی مطالعه میان منابع پرحجم و یافتن مسیر بعدی جست‌وجو.`
+      },
+      {
+        id: `tpl-07`,
+        globalNum: 7,
+        levelNum: 7,
+        level: `beginner`,
+        latin: `Recurring Topics - Domain Learning Variant`,
+        persian: `مباحث پرتکرار (شاخه یادگیری موضوعی)`,
+        domain: `یادگیری و پژوهش`,
+        deckDesc: `ردیابی و شناسایی مفاهیم و سرفصل‌های تکرارشونده در منابع برای تسهیل و تسریع یادگیری پایه‌ای یک رشته تخصصی.`,
+        docDesc: `موضوعات و مفاهیم تکراری را در منابع شناسایی می‌کند تا به یادگیری سریع‌تر مفاهیم پایه و پرتکرار یک حوزه علمی یا تخصصی کمک کند.`,
+        bestUse: `ورود به یک رشته تخصصی جدید و کشف هسته مشترک ادبیات موضوع.`
+      },
+      {
+        id: `tpl-08`,
+        globalNum: 8,
+        levelNum: 8,
+        level: `beginner`,
+        latin: `Recurring Topics Extractor v2 - Compact`,
+        persian: `استخراج مباحث پرتکرار (نسخه کوتاه)`,
+        domain: `خلاصه‌سازی و سنتز`,
+        deckDesc: `استخراج سریع، خلاصه و متمرکز فهرست عناوین و موضوعات مشترک و تکراری میان منابع مختلف.`,
+        docDesc: `نسخه خلاصه و سریع برای استخراج فهرست موضوعات پرتکرار و مشترک بین منابع است.`,
+        bestUse: `تهیه سریع تگ‌ها، سرفصل‌ها یا فهرست موضوعات مشترک میان اسناد.`
+      },
+      {
+        id: `tpl-09`,
+        globalNum: 9,
+        levelNum: 9,
+        level: `beginner`,
+        latin: `Source Relevance Ranker`,
+        persian: `رتبه‌بندی پیوند و اصالت منابع`,
+        domain: `تحلیل انتقادی و راستی‌آزمایی`,
+        deckDesc: `سنجش و رتبه‌بندی اسناد بارگذاری‌شده بر مبنای میزان ارتباط، اعتبار و وزن اطلاعاتی آن‌ها نسبت به هسته اصلی پژوهش.`,
+        docDesc: `منابع بارگذاری‌شده را بر اساس میزان ارتباط، اعتبار و اهمیت آن‌ها نسبت به موضوع اصلی تحقیق شما رتبه‌بندی می‌کند.`,
+        bestUse: `غربال‌گری منابع انبوه پیش از تحلیل عمیق و کنار گذاشتن اسناد کم‌ارتباط.`
+      },
+
+      // Intermediate (10 - 27)
+      {
+        id: `tpl-10`,
+        globalNum: 10,
+        levelNum: 1,
+        level: `intermediate`,
+        latin: `Multi-Source Comparison Table`,
+        persian: `جدول مقایسه‌ای چندمنبعی`,
+        domain: `تحلیل انتقادی و راستی‌آزمایی`,
+        deckDesc: `طراحی جدول جامع میان چندین منبع جهت بررسی شباهت‌ها، تمایزها، نقاط قوت و نقاط ضعف آن‌ها در کنار یکدیگر.`,
+        docDesc: `به ساخت جدول مقایسه‌ای میان چندین منبع مختلف برای نمایش شباهت‌ها، تفاوت‌ها، نقاط قوت و ضعف هرکدام در کنار هم اختصاص دارد.`,
+        bestUse: `مقایسه رویکردهای مختلف مقالات، گزارش‌های رقیب یا گزینه‌های پژوهشی.`
+      },
+      {
+        id: `tpl-11`,
+        globalNum: 11,
+        levelNum: 2,
+        level: `intermediate`,
+        latin: `The Dialectical Lens`,
+        persian: `نگرش دیالکتیکی`,
+        domain: `تحلیل انتقادی و راستی‌آزمایی`,
+        deckDesc: `تحلیل پدیده‌ها از دیدگاه دیالکتیک (تز، آنتی‌تز، سنتز) و تقابل‌دهی آرای موافق و مخالف جهت رسیدن به جمع‌بندی متوازن.`,
+        docDesc: `موضوع را از دریچه دیالکتیک (تز، آنتی‌تز و سنتز) بررسی می‌کند و با قرار دادن دیدگاه‌های موافق و مخالف در برابر هم، به یک جمع‌بندی متعادل و جامع می‌رسد.`,
+        bestUse: `بررسی موضوعات مناقشه‌برانگیز با دیدگاه‌های متقابل و رسیدن به سنتز متوازن.`
+      },
+      {
+        id: `tpl-12`,
+        globalNum: 12,
+        levelNum: 3,
+        level: `intermediate`,
+        latin: `Code Review with Best Practices`,
+        persian: `بازبینی کد با الگوهای بهینه`,
+        domain: `مهندسی و فنی`,
+        deckDesc: `ارزیابی کدهای فنی موجود در منابع و تطبیق آن‌ها با استانداردهای برنامه‌نویسی برای کشف باگ و ارتقای کیفیت.`,
+        docDesc: `کدهای موجود در منابع را بازبینی کرده و آن‌ها را با استانداردها و بهترین روش‌های برنامه‌نویسی (Best Practices) تطبیق می‌دهد تا باگ‌ها شناسایی و کیفیت کد بهبود یابد.`,
+        bestUse: `بازبینی مستندات کد، اسکریپت‌ها و نمونه‌کدهای فنی بارگذاری‌شده.`
+      },
+      {
+        id: `tpl-13`,
+        globalNum: 13,
+        levelNum: 4,
+        level: `intermediate`,
+        latin: `Learning Path Designer`,
+        persian: `طراحی نقشه راه یادگیری`,
+        domain: `یادگیری و پژوهش`,
+        deckDesc: `ساخت سیلابس و مسیر گام‌به‌گام فراگیری (از مفاهیم مقدماتی تا مباحث پیشرفته) بر پایه مستندات.`,
+        docDesc: `یک نقشه راه و مسیر یادگیری گام‌به‌گام (از پایه تا پیشرفته) بر اساس سرفصل‌ها و مطالب موجود در منابع شما طراحی می‌کند.`,
+        bestUse: `تبدیل مجموعه‌ای پراکنده از کتاب‌ها و مقالات به یک برنامه آموزشی مرحله‌به‌مرحله.`
+      },
+      {
+        id: `tpl-14`,
+        globalNum: 14,
+        levelNum: 5,
+        level: `intermediate`,
+        latin: `Tech Watch Synthesis`,
+        persian: `ترکیب و دیده‌بانی فناوری`,
+        domain: `مهندسی و فنی`,
+        deckDesc: `پایش و ترکیب آخرین تحولات، ابداعات و تغییرات تکنولوژیک منعکس‌شده در مقالات و گزارش‌ها.`,
+        docDesc: `آخرین روندها، نوآوری‌ها و تغییرات فناوری که در مقالات یا گزارش‌های بارگذاری‌شده مطرح شده‌اند را رصد و ترکیب می‌کند.`,
+        bestUse: `جمع‌بندی خبرنامه‌ها، مقالات جدید فناوری و گزارش‌های ترند سالانه.`
+      },
+      {
+        id: `tpl-15`,
+        globalNum: 15,
+        levelNum: 6,
+        level: `intermediate`,
+        latin: `Technical Documentation Generator`,
+        persian: `تولید مستندات فنی`,
+        domain: `مهندسی و فنی`,
+        deckDesc: `تبدیل یادداشت‌های پراکنده، قطعه‌کدها یا توضیحات نامنسجم به راهنماها و اسناد استاندارد مهندسی.`,
+        docDesc: `یادداشت‌های پراکنده، کدها یا توضیحات فنی را به یک مستند فنی منظم، استاندارد و قابل فهم تبدیل می‌کند.`,
+        bestUse: `تهیه راهنمای فنی، مستندات API یا دستورالعمل‌های تیم مهندسی از یادداشت‌های خام.`
+      },
+      {
+        id: `tpl-16`,
+        globalNum: 16,
+        levelNum: 7,
+        level: `intermediate`,
+        latin: `Concept Connection Mapper`,
+        persian: `نقشه‌برداری پیوندهای مفهومی`,
+        domain: `یادگیری و پژوهش`,
+        deckDesc: `شناسایی و ترسیم رشته‌های ارتباطی پنهان و منطقی بین مفاهیم و انگاره‌های پراکنده در منابع.`,
+        docDesc: `ارتباطات پنهان و منطقی میان مفاهیم، ایده‌ها و موضوعات مختلف را در بین تمام منابع کشف و ترسیم می‌کند.`,
+        bestUse: `کشف پیوندهای بین‌رشته‌ای و طراحی نقشه مفهومی میان اسناد متعدد.`
+      },
+      {
+        id: `tpl-17`,
+        globalNum: 17,
+        levelNum: 8,
+        level: `intermediate`,
+        latin: `Source-Grounded Project Designer`,
+        persian: `طراحی پروژه متکی بر منبع`,
+        domain: `مدیریت و راهبرد`,
+        deckDesc: `تدوین ساختار و الزامات پروژه‌های عملیاتی که کلیه مراحل آن مستقیماً بر مبنای محتوای منابع استوار است.`,
+        docDesc: `ایده و ساختار یک پروژه عملی و اجرایی را طراحی می‌کند که تمام مراحل آن دقیقاً بر پایه دانش و داده‌های موجود در منابع شما بنا شده باشد.`,
+        bestUse: `تبدیل پژوهش‌های نظری به طرح پروژه اجرایی و عملیاتی بدون انحراف از منبع.`
+      },
+      {
+        id: `tpl-18`,
+        globalNum: 18,
+        levelNum: 9,
+        level: `intermediate`,
+        latin: `Complete Study Guide Generator`,
+        persian: `تولید راهنمای جامع تحصیلی`,
+        domain: `یادگیری و پژوهش`,
+        deckDesc: `تدوین راهنمای یادگیری شامل خلاصه‌ها، فرهنگ واژگان، مفاهیم کلیدی و پرسش‌های سنجش درسی.`,
+        docDesc: `یک راهنمای مطالعه جامع (شامل خلاصه مباحث، واژه‌نامه، نکات کلیدی و سؤالات امتحانی) از روی منابع درسی یا پژوهشی می‌سازد.`,
+        bestUse: `ساخت بسته مطالعه کامل برای دوره‌های دانشگاهی، گواهینامه‌ها و خودآموزی.`
+      },
+      {
+        id: `tpl-19`,
+        globalNum: 19,
+        levelNum: 10,
+        level: `intermediate`,
+        latin: `Content Strategy Analyzer`,
+        persian: `تحلیل راهبرد محتوا`,
+        domain: `مدیریت و راهبرد`,
+        deckDesc: `بررسی خط‌مشی‌های محتوایی موجود در داده‌ها و ارائه ایده‌ها، زوایای دید و مشخصات مخاطب هدف.`,
+        docDesc: `استراتژی محتوایی موجود در منابع را تحلیل کرده و پیشنهادهایی برای تولید محتوا، زاویه دیدها و مخاطبان هدف ارائه می‌دهد.`,
+        bestUse: `برنامه‌ریزی تولید محتوا، شناخت مخاطب هدف و استخراج زوایای تحریریه.`
+      },
+      {
+        id: `tpl-20`,
+        globalNum: 20,
+        levelNum: 11,
+        level: `intermediate`,
+        latin: `Global Synthesis - Data Engineering Variant`,
+        persian: `سنتز متمرکز بر مهندسی داده`,
+        domain: `مهندسی و فنی`,
+        deckDesc: `ادغام و ترکیب داده‌محور اسناد با تمرکز بر سامانه‌ها، معماری و چالش‌های پردازش داده.`,
+        docDesc: `به ترکیب و یکپارچه‌سازی جامع تمام منابع با تمرکز ویژه بر مفاهیم، معماری‌ها و چالش‌های حوزه مهندسی داده (Data Engineering) می‌پردازد.`,
+        bestUse: `تحلیل اسناد زیرساخت داده، انبارهای داده و معماری جریان‌های اطلاعات.`
+      },
+      {
+        id: `tpl-21`,
+        globalNum: 21,
+        levelNum: 12,
+        level: `intermediate`,
+        latin: `Global Synthesis - Full Version`,
+        persian: `سنتز سراسری (نسخه جامع)`,
+        domain: `خلاصه‌سازی و سنتز`,
+        deckDesc: `پردازش فراگیر و موشکافانه تمام منابع بدون حذف جزئیات و پیوندهای ساختاری.`,
+        docDesc: `یک تحلیل و ترکیب جامع، مفصل و همه‌جانبه از تمام منابع را بدون حذف جزئیات مهم ارائه می‌کند.`,
+        bestUse: `تدوین گزارش جامع پژوهشی زمانی که حفظ همه جزئیات حیاتی است.`
+      },
+      {
+        id: `tpl-22`,
+        globalNum: 22,
+        levelNum: 13,
+        level: `intermediate`,
+        latin: `Recurring Topics Extractor v1 - Complete`,
+        persian: `استخراج تفصیلی موضوعات مکرر`,
+        domain: `خلاصه‌سازی و سنتز`,
+        deckDesc: `فهرست‌برداری کامل، دقیق و ارجاع‌محور از کلیه کلیدواژه‌ها، الگوها و مضامین مشترک بین اسناد.`,
+        docDesc: `تمام موضوعات، الگوها و کلیدواژه‌هایی را که در چندین منبع تکرار شده‌اند به صورت کامل و دقیق همراه با جزئیات و ارجاعات استخراج می‌کند.`,
+        bestUse: `کدگذاری کیفی اسناد، مرور نظام‌مند ادبیات و ارجاع‌دهی دقیق بین منابع.`
+      },
+      {
+        id: `tpl-23`,
+        globalNum: 23,
+        levelNum: 14,
+        level: `intermediate`,
+        latin: `Recurring Topics - Solution Evaluation Variant`,
+        persian: `ارزیابی راهکارهای پرتکرار`,
+        domain: `مدیریت و راهبرد`,
+        deckDesc: `گردآوری موضوعات تکرارشونده با تمرکز بر نقد و سنجش راهکارهای پیشنهادی جهت حل مسئله.`,
+        docDesc: `موضوعات پرتکرار را با تمرکز بر ارزیابی راه‌حل‌های پیشنهادی در منابع برای حل یک مسئله خاص استخراج می‌کند.`,
+        bestUse: `انتخاب بهترین راه‌حل میان پیشنهادهای تکرارشونده در گزارش‌های مشاوره‌ای یا فنی.`
+      },
+      {
+        id: `tpl-24`,
+        globalNum: 24,
+        levelNum: 15,
+        level: `intermediate`,
+        latin: `Recurring Topics - Tech Watch Variant`,
+        persian: `رصد فناوری‌های تکرارشونده`,
+        domain: `مهندسی و فنی`,
+        deckDesc: `رهگیری ابزارها، کتابخانه‌ها و فناوری‌های نوپایی که در گزارش‌های متعدد مورد تأکید واقع شده‌اند.`,
+        docDesc: `فناوری‌ها، ابزارها و روندهای نوظهوری را شناسایی می‌کند که به طور مکرر در گزارش‌ها و منابع مختلف به آن‌ها اشاره شده است.`,
+        bestUse: `تشخیص ابزارها و فناوری‌های غالب در میان ده‌ها گزارش صنعتی و تخصصی.`
+      },
+      {
+        id: `tpl-25`,
+        globalNum: 25,
+        levelNum: 16,
+        level: `intermediate`,
+        latin: `Source Conflict Detector`,
+        persian: `ردیاب تناقض‌های اسناد`,
+        domain: `تحلیل انتقادی و راستی‌آزمایی`,
+        deckDesc: `آشکارسازی ناهمخوانی‌ها، اختلاف آمارها و جهت‌گیری‌های معارض میان منابع مختلف با هدف راستی‌آزمایی.`,
+        docDesc: `تناقض‌ها، اختلاف آمارها و دیدگاه‌های متضاد بین منابع مختلف را ردیابی می‌کند و برای راستی‌آزمایی و تحلیل‌های دقیق بسیار کاربردی است.`,
+        bestUse: `راستی‌آزمایی داده‌ها، گزارش‌های خبری، مطالعات بالینی یا اسناد حقوقی متضاد.`
+      },
+      {
+        id: `tpl-26`,
+        globalNum: 26,
+        levelNum: 17,
+        level: `intermediate`,
+        latin: `Pipeline Debugger`,
+        persian: `خطایابی پایپ‌لاین و فرایند`,
+        domain: `مهندسی و فنی`,
+        deckDesc: `کشف باگ‌ها، آسیب‌پذیری‌ها و گلوگاه‌های خطوط لوله داده و فرایندهای اجرایی تشریح‌شده در منابع.`,
+        docDesc: `به عیب‌یابی خطوط لوله داده (Data Pipelines) یا فرآیندهای کاریِ توصیف‌شده در منابع و شناسایی گلوگاه‌ها و خطاهای احتمالی می‌پردازد.`,
+        bestUse: `یافتن گلوگاه‌های پردازشی و نقاط شکست در مستندات ETL و فرآیندهای عملیاتی.`
+      },
+      {
+        id: `tpl-27`,
+        globalNum: 27,
+        levelNum: 18,
+        level: `intermediate`,
+        latin: `Source-Comparison Implementation Guide`,
+        persian: `راهنمای اجرایی مقایسه ابزارها`,
+        domain: `مهندسی و فنی`,
+        deckDesc: `سنجش تطبیقی راهکارها و ابزارهای مطرح در منابع همراه با نقشه پیاده‌سازی گام‌به‌گام.`,
+        docDesc: `روش‌ها یا ابزارهای مختلف معرفی‌شده در منابع را مقایسه کرده و یک راهنمای عملی برای پیاده‌سازی بهترین گزینه ارائه می‌دهد.`,
+        bestUse: `تصمیم‌گیری میان ابزارها و دریافت دستورالعمل گام‌به‌گام پیاده‌سازی گزینه منتخب.`
+      },
+
+      // Advanced (28 - 34)
+      {
+        id: `tpl-28`,
+        globalNum: 28,
+        levelNum: 1,
+        level: `advanced`,
+        latin: `Multi-Pass Structured Iteration`,
+        persian: `پردازش تکرارشونده چندمرحله‌ای`,
+        domain: `خلاصه‌سازی و سنتز`,
+        deckDesc: `بازبینی متوالی و ساختارمند لایه‌های متن برای دستیابی به تحلیل‌های عمیق، دقیق و سنگین پژوهشی.`,
+        docDesc: `پردازش چندمرحله‌ای و لایه‌به‌لایه روی منابع انجام می‌دهد تا یک خروجی بسیار دقیق، عمیق و ساختارمند تولید کند که برای تحلیل‌های سنگین و نیازمند بازبینی چندباره مناسب است.`,
+        bestUse: `تحلیل‌های سنگین پژوهشی که نیازمند پالایش چندباره و ساختارمندی بالا هستند.`
+      },
+      {
+        id: `tpl-29`,
+        globalNum: 29,
+        levelNum: 2,
+        level: `advanced`,
+        latin: `Podcast-Style Text Response`,
+        persian: `خروجی متنی در قالب پادکست`,
+        domain: `مدیریت و راهبرد`,
+        deckDesc: `تبدیل مضامین سنگین و پیچیده علمی به فیلم‌نامه یا گفت‌وگوی دونفره و محاوره‌ای با لحن شنیداری جذاب.`,
+        docDesc: `محتوای منابع را به یک متن محاوره‌ای، جذاب و گفت‌وگومحور (شبیه به فیلم‌نامه یا متن یک پادکست دو نفره) تبدیل می‌کند تا درک مطالب پیچیده راحت‌تر شود.`,
+        bestUse: `ساده‌سازی مفاهیم دشوار برای آموزش صوتی، سناریونویسی و ارائه جذاب.`
+      },
+      {
+        id: `tpl-30`,
+        globalNum: 30,
+        levelNum: 3,
+        level: `advanced`,
+        latin: `The Anti-Thesis`,
+        persian: `استخراج آنتی‌تز و دیدگاه متقابل`,
+        domain: `تحلیل انتقادی و راستی‌آزمایی`,
+        deckDesc: `شناسایی و صورت‌بندی ادله مخالف و ناقض فرضیه اصلی اسناد به‌منظور به چالش کشیدن باورهای پیشین.`,
+        docDesc: `استدلال‌های متضاد و مخالف با ایده اصلیِ مطرح‌شده در منابع را استخراج می‌کند تا فرضیات اولیه به چالش کشیده شوند.`,
+        bestUse: `به چالش کشیدن فرضیه محوری یک مقاله یا طرح پیش از دفاع و تصمیم‌گیری نهایی.`
+      },
+      {
+        id: `tpl-31`,
+        globalNum: 31,
+        levelNum: 4,
+        level: `advanced`,
+        latin: `The Devil's Advocate`,
+        persian: `وکیل مدافع شیطان (نقد ساختارشکن)`,
+        domain: `تحلیل انتقادی و راستی‌آزمایی`,
+        deckDesc: `واسازی موشکافانه، شناسایی ضعف‌های استدلالی، حفره‌های منطقی و ریسک‌های پنهان درون طرح‌ها.`,
+        docDesc: `نقش «وکیل مدافع شیطان» را ایفا می‌کند؛ یعنی به نقد شدید، پیدا کردن حفره‌های منطقی، ریسک‌ها و نقاط ضعفِ طرح یا دیدگاه موجود در منابع می‌پردازد.`,
+        bestUse: `استرس‌تست فکری ایده‌ها، طرح‌های کسب‌وکار و مستندات استدلالی.`
+      },
+      {
+        id: `tpl-32`,
+        globalNum: 32,
+        levelNum: 5,
+        level: `advanced`,
+        latin: `The Disillusionment Filter`,
+        persian: `پالایه توهم‌زدایی و واقعیت‌سنجی`,
+        domain: `تحلیل انتقادی و راستی‌آزمایی`,
+        deckDesc: `پیرایش متون از بزرگ‌نمایی‌ها، شعارهای بازاریابی و خوش‌بینی‌های واهی برای درک واقعیت ملموس.`,
+        docDesc: `به عنوان فیلتر توهم‌زدایی عمل می‌کند و با حذف بزرگ‌نمایی‌ها، شعارهای تبلیغاتی و خوش‌بینی‌های غیرواقعی از متن منابع، شما را به حقایق عریان و واقع‌بینانه می‌رساند.`,
+        bestUse: `پالایش اسناد بازاریابی، وایت‌پیپرها و گزارش‌های تبلیغاتی برای کشف واقعیت.`
+      },
+      {
+        id: `tpl-33`,
+        globalNum: 33,
+        levelNum: 6,
+        level: `advanced`,
+        latin: `Architecture Decision Comparison`,
+        persian: `مقایسه ساختار و معماری سیستم`,
+        domain: `مهندسی و فنی`,
+        deckDesc: `ارزیابی گزینه‌های معماری سیستم بر پایه شاخص‌های فنی نظیر مقیاس‌پذیری، کارایی، پیچیدگی و هزینه‌ها.`,
+        docDesc: `گزینه‌های مختلف معماری (به‌ویژه در طراحی سیستم‌ها و نرم‌افزار) را بر اساس معیارهایی مثل مقیاس‌پذیری، هزینه، پیچیدگی و کارایی موجود در منابع مقایسه می‌کند.`,
+        bestUse: `تدوین مستندات تصمیم‌گیری معماری (ADR) و انتخاب زیرساخت بهینه نرم‌افزاری.`
+      },
+      {
+        id: `tpl-34`,
+        globalNum: 34,
+        levelNum: 7,
+        level: `advanced`,
+        latin: `Source-Based Gap Analysis Engine`,
+        persian: `موتور تحلیل شکاف داده‌ها`,
+        domain: `تحلیل انتقادی و راستی‌آزمایی`,
+        deckDesc: `کاوش عمیق منابع جهت نمایان ساختن خلأهای دانشی، زوایای مغفول و سؤالات پاسخ‌داده‌نشده.`,
+        docDesc: `برای تحلیل شکاف (Gap Analysis) به کار می‌رود و با بررسی عمیق منابع، خلأهای اطلاعاتی، سؤالات بی‌پاسخ و بخش‌هایی را که در منابع به آن‌ها پرداخته نشده است پیدا می‌کند.`,
+        bestUse: `کشف حفره‌های پژوهشی پیش از جمع‌آوری داده‌های تکمیلی یا شروع نگارش مقاله.`
+      }
+    ];
+
+    const DOMAINS = [
+      `خلاصه‌سازی و سنتز`,
+      `یادگیری و پژوهش`,
+      `مهندسی و فنی`,
+      `تحلیل انتقادی و راستی‌آزمایی`,
+      `مدیریت و راهبرد`
+    ];
+
+    const WORKFLOW_PRESETS = {
+      research: {
+        name: `پژوهش سریع و یادگیری`,
+        ids: [`tpl-09`, `tpl-03`, `tpl-05`, `tpl-18`, `tpl-34`]
+      },
+      engineering: {
+        name: `ممیزی فنی و معماری`,
+        ids: [`tpl-15`, `tpl-12`, `tpl-26`, `tpl-27`, `tpl-33`]
+      },
+      critical: {
+        name: `راستی‌آزمایی و تحلیل انتقادی`,
+        ids: [`tpl-10`, `tpl-25`, `tpl-11`, `tpl-32`, `tpl-31`]
+      }
+    };
+
+    const STORAGE_KEY = `notebooklm_playbook_offline_state_v1`;
+
+    const appState = {
+      theme: `light`,
+      levelFilter: `all`,
+      domainFilter: `all`,
+      searchQuery: ``,
+      viewMode: `cards`,
+      bookmarksOnly: false,
+      selectedId: `tpl-01`,
+      bookmarks: [],
+      workflow: []
+    };
+
+    function toPersianDigits(num) {
+      const digits = [`۰`, `۱`, `۲`, `۳`, `۴`, `۵`, `۶`, `۷`, `۸`, `۹`];
+      return String(num).replace(/\d/g, function(d) {
+        return digits[Number(d)];
+      });
+    }
+
+    function padTwo(num) {
+      return num < 10 ? `0${num}` : `${num}`;
+    }
+
+    function showToast(message) {
+      const container = document.getElementById(`toast-container`);
+      if (!container) return;
+      const toast = document.createElement(`div`);
+      toast.className = `toast`;
+      toast.innerHTML = `${ICONS.check} <span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(function() {
+        toast.style.opacity = `0`;
+        toast.style.transition = `opacity 200ms ease`;
+        setTimeout(function() {
+          if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }, 220);
+      }, 2400);
+    }
+
+    function applyTheme(theme) {
+      appState.theme = theme === `dark` ? `dark` : `light`;
+      document.documentElement.setAttribute(`data-theme`, appState.theme);
+      const iconEl = document.getElementById(`theme-icon`);
+      const labelEl = document.getElementById(`theme-label`);
+      if (iconEl) iconEl.innerHTML = appState.theme === `dark` ? ICONS.sun : ICONS.moon;
+      if (labelEl) labelEl.textContent = appState.theme === `dark` ? `حالت روشن` : `حالت تاریک`;
+    }
+
+    function toggleTheme() {
+      applyTheme(appState.theme === `dark` ? `light` : `dark`);
+      requestAnimationFrame(function() { updateAmbientAnimation(true); });
+      persistState();
+    }
+
+    function persistState() {
+      const payload = {
+        theme: appState.theme,
+        levelFilter: appState.levelFilter,
+        domainFilter: appState.domainFilter,
+        viewMode: appState.viewMode,
+        bookmarksOnly: appState.bookmarksOnly,
+        selectedId: appState.selectedId,
+        bookmarks: appState.bookmarks,
+        workflow: appState.workflow
+      };
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      } catch (e) {
+        // Ignore storage errors in strict sandboxed/private modes
+      }
+    }
+
+    function loadPersistedState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const saved = JSON.parse(raw);
+        if (!saved || typeof saved !== `object`) return;
+        if (saved.theme) appState.theme = saved.theme;
+        if (saved.levelFilter) appState.levelFilter = saved.levelFilter;
+        if (saved.domainFilter) appState.domainFilter = saved.domainFilter;
+        if (saved.viewMode) appState.viewMode = saved.viewMode;
+        if (typeof saved.bookmarksOnly === `boolean`) appState.bookmarksOnly = saved.bookmarksOnly;
+        if (saved.selectedId) appState.selectedId = saved.selectedId;
+        if (Array.isArray(saved.bookmarks)) appState.bookmarks = saved.bookmarks;
+        if (Array.isArray(saved.workflow)) appState.workflow = saved.workflow;
+      } catch (e) {
+        // Fallback to default state
+      }
+    }
+
+    function getFilteredTemplates() {
+      const q = appState.searchQuery.trim().toLowerCase();
+      return TEMPLATES.filter(function(item) {
+        if (appState.levelFilter !== `all` && item.level !== appState.levelFilter) return false;
+        if (appState.domainFilter !== `all` && item.domain !== appState.domainFilter) return false;
+        if (appState.bookmarksOnly && appState.bookmarks.indexOf(item.id) === -1) return false;
+        if (q) {
+          const haystack = `${item.latin} ${item.persian} ${item.deckDesc} ${item.docDesc} ${item.domain}`.toLowerCase();
+          if (haystack.indexOf(q) === -1) return false;
+        }
+        return true;
+      });
+    }
+
+    function setLevelFilter(level) {
+      appState.levelFilter = level;
+      const selectEl = document.getElementById(`level-select`);
+      if (selectEl) selectEl.value = level;
+      renderAll();
+      persistState();
+    }
+
+    function setDomainFilter(domain) {
+      appState.domainFilter = domain;
+      const selectEl = document.getElementById(`domain-select`);
+      if (selectEl) selectEl.value = domain;
+      renderAll();
+      persistState();
+    }
+
+    function handleSearchInput(val) {
+      appState.searchQuery = val;
+      const clearBtn = document.getElementById(`clear-search-btn`);
+      if (clearBtn) clearBtn.style.display = val.trim().length > 0 ? `inline-flex` : `none`;
+      renderCatalog();
+      requestAnimationFrame(function() { updateAmbientAnimation(true); });
+    }
+
+    function clearSearch() {
+      appState.searchQuery = ``;
+      const inputEl = document.getElementById(`search-input`);
+      if (inputEl) inputEl.value = ``;
+      const clearBtn = document.getElementById(`clear-search-btn`);
+      if (clearBtn) clearBtn.style.display = `none`;
+      renderCatalog();
+      requestAnimationFrame(function() { updateAmbientAnimation(true); });
+    }
+
+    function setViewMode(mode) {
+      appState.viewMode = mode;
+      renderAll();
+      persistState();
+    }
+
+    function toggleBookmarksOnly() {
+      appState.bookmarksOnly = !appState.bookmarksOnly;
+      renderAll();
+      persistState();
+    }
+
+    function resetAllFilters() {
+      appState.levelFilter = `all`;
+      appState.domainFilter = `all`;
+      appState.searchQuery = ``;
+      appState.bookmarksOnly = false;
+      const inputEl = document.getElementById(`search-input`);
+      if (inputEl) inputEl.value = ``;
+      const clearBtn = document.getElementById(`clear-search-btn`);
+      if (clearBtn) clearBtn.style.display = `none`;
+      const levelSelect = document.getElementById(`level-select`);
+      if (levelSelect) levelSelect.value = `all`;
+      const domainSelect = document.getElementById(`domain-select`);
+      if (domainSelect) domainSelect.value = `all`;
+      renderAll();
+      persistState();
+    }
+
+    function selectTemplate(id) {
+      appState.selectedId = id;
+      renderCatalog();
+      renderInspector();
+      requestAnimationFrame(function() { updateAmbientAnimation(true); });
+      persistState();
+      if (window.innerWidth <= 1024) {
+        openMobileSheet(`inspector`);
+      }
+    }
+
+    let activeMobileSheet = null;
+
+    function openMobileSheet(sheetType) {
+      if (window.innerWidth > 1024) return;
+      const insp = document.getElementById(`inspector-panel`);
+      const wf = document.getElementById(`workflow-panel`);
+      const backdrop = document.getElementById(`mobile-sheet-backdrop`);
+      if (!insp || !wf || !backdrop) return;
+
+      if (activeMobileSheet === sheetType) {
+        closeMobileSheet();
+        return;
+      }
+
+      insp.classList.remove(`is-sheet-open`);
+      wf.classList.remove(`is-sheet-open`);
+
+      if (sheetType === `inspector`) {
+        insp.classList.add(`is-sheet-open`);
+        insp.scrollTop = 0;
+      } else if (sheetType === `workflow`) {
+        wf.classList.add(`is-sheet-open`);
+        wf.scrollTop = 0;
+      }
+
+      backdrop.classList.add(`is-open`);
+      document.body.classList.add(`is-sheet-open`);
+      activeMobileSheet = sheetType;
+      updateMobileNavState();
+    }
+
+    function closeMobileSheet() {
+      const insp = document.getElementById(`inspector-panel`);
+      const wf = document.getElementById(`workflow-panel`);
+      const backdrop = document.getElementById(`mobile-sheet-backdrop`);
+      if (insp) insp.classList.remove(`is-sheet-open`);
+      if (wf) wf.classList.remove(`is-sheet-open`);
+      if (backdrop) backdrop.classList.remove(`is-open`);
+      document.body.classList.remove(`is-sheet-open`);
+      activeMobileSheet = null;
+      updateMobileNavState();
+    }
+
+    function mobileGoCatalog() {
+      if (activeMobileSheet) {
+        closeMobileSheet();
+      } else {
+        window.scrollTo({ top: 0, behavior: `smooth` });
+      }
+    }
+
+    function updateMobileNavState() {
+      const btnCat = document.getElementById(`mnav-catalog`);
+      const btnInsp = document.getElementById(`mnav-inspector`);
+      const btnWf = document.getElementById(`mnav-workflow`);
+      if (btnCat) btnCat.classList.toggle(`is-active`, !activeMobileSheet);
+      if (btnInsp) btnInsp.classList.toggle(`is-active`, activeMobileSheet === `inspector`);
+      if (btnWf) btnWf.classList.toggle(`is-active`, activeMobileSheet === `workflow`);
+    }
+
+    function toggleBookmark(id, evt) {
+      if (evt) evt.stopPropagation();
+      const idx = appState.bookmarks.indexOf(id);
+      if (idx === -1) {
+        appState.bookmarks.push(id);
+        showToast(`قالب به نشان‌شده‌ها اضافه شد.`);
+      } else {
+        appState.bookmarks.splice(idx, 1);
+        showToast(`قالب از نشان‌شده‌ها حذف شد.`);
+      }
+      renderAll();
+      persistState();
+    }
+
+    function addToWorkflow(id, evt) {
+      if (evt) evt.stopPropagation();
+      const exists = appState.workflow.some(function(w) { return w.id === id; });
+      if (!exists) {
+        appState.workflow.push({ id: id, done: false });
+        showToast(`قالب به زنجیره مطالعه اضافه شد.`);
+      } else {
+        showToast(`این قالب از قبل در زنجیره وجود دارد.`);
+      }
+      renderWorkflow();
+      renderCatalog();
+      renderInspector();
+      persistState();
+    }
+
+    function removeFromWorkflow(id) {
+      appState.workflow = appState.workflow.filter(function(w) { return w.id !== id; });
+      showToast(`قالب از زنجیره حذف شد.`);
+      renderWorkflow();
+      renderCatalog();
+      renderInspector();
+      persistState();
+    }
+
+    function toggleWorkflowDone(id) {
+      appState.workflow = appState.workflow.map(function(w) {
+        return w.id === id ? { id: w.id, done: !w.done } : w;
+      });
+      renderWorkflow();
+      persistState();
+    }
+
+    function moveWorkflowItem(index, delta) {
+      const target = index + delta;
+      if (target < 0 || target >= appState.workflow.length) return;
+      const copy = appState.workflow.slice();
+      const moved = copy.splice(index, 1)[0];
+      copy.splice(target, 0, moved);
+      appState.workflow = copy;
+      renderWorkflow();
+      persistState();
+    }
+
+    function loadWorkflowPreset(presetKey) {
+      const preset = WORKFLOW_PRESETS[presetKey];
+      if (!preset) return;
+      appState.workflow = preset.ids.map(function(id) {
+        return { id: id, done: false };
+      });
+      showToast(`الگوی «${preset.name}» بارگذاری شد.`);
+      renderWorkflow();
+      renderCatalog();
+      renderInspector();
+      persistState();
+    }
+
+    function clearWorkflow(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `تأیید پاک‌سازی؟`;
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = `پاک‌سازی زنجیره`;
+      appState.workflow = [];
+      showToast(`زنجیره مطالعه پاک‌سازی شد.`);
+      renderWorkflow();
+      renderCatalog();
+      renderInspector();
+      persistState();
+    }
+
+    function exportWorkflow() {
+      if (appState.workflow.length === 0) return;
+      const lines = [
+        `زنجیره مطالعاتی و تحلیلی GeminiNoteBook`,
+        `====================================`,
+        ``
+      ];
+      appState.workflow.forEach(function(item, idx) {
+        const tpl = TEMPLATES.find(function(t) { return t.id === item.id; });
+        if (!tpl) return;
+        const statusText = item.done ? `[تکمیل‌شده]` : `[در انتظار]`;
+        const levelInfo = LEVELS[tpl.level];
+        lines.push(`${idx + 1}. ${tpl.persian} (${tpl.latin}) — ${levelInfo.shortFa} ${statusText}`);
+        lines.push(`   عملکرد: ${tpl.deckDesc}`);
+        lines.push(``);
+      });
+      const content = lines.join(`\n`);
+      const blob = new Blob([`\uFEFF` + content], { type: `text/plain;charset=utf-8` });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement(`a`);
+      a.href = url;
+      a.download = `gemininotebook-playbook-workflow.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(`فایل متنی زنجیره ذخیره شد.`);
+    }
+
+    function copyTemplateName(latinName) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(latinName).then(function() {
+          showToast(`نام قالب در حافظه کپی شد.`);
+        }).catch(function() {
+          fallbackCopy(latinName);
+        });
+      } else {
+        fallbackCopy(latinName);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const ta = document.createElement(`textarea`);
+      ta.value = text;
+      ta.style.position = `fixed`;
+      ta.style.opacity = `0`;
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand(`copy`);
+        showToast(`نام قالب در حافظه کپی شد.`);
+      } catch (err) {
+        showToast(`امکان کپی خودکار نبود؛ نام را دستی کپی کنید.`);
+      }
+      document.body.removeChild(ta);
+    }
+
+    function renderControlsState() {
+      [`all`, `beginner`, `intermediate`, `advanced`].forEach(function(k) {
+        const el = document.getElementById(`kpi-${k}`);
+        if (el) el.classList.toggle(`is-active`, appState.levelFilter === k);
+      });
+
+      const cardsBtn = document.getElementById(`btn-view-cards`);
+      const tableBtn = document.getElementById(`btn-view-table`);
+      if (cardsBtn) {
+        cardsBtn.classList.toggle(`is-active`, appState.viewMode === `cards`);
+        cardsBtn.setAttribute(`aria-pressed`, appState.viewMode === `cards` ? `true` : `false`);
+      }
+      if (tableBtn) {
+        tableBtn.classList.toggle(`is-active`, appState.viewMode === `table`);
+        tableBtn.setAttribute(`aria-pressed`, appState.viewMode === `table` ? `true` : `false`);
+      }
+
+      const bmBtn = document.getElementById(`btn-bookmarks-only`);
+      if (bmBtn) {
+        bmBtn.classList.toggle(`is-active`, appState.bookmarksOnly);
+        bmBtn.setAttribute(`aria-pressed`, appState.bookmarksOnly ? `true` : `false`);
+      }
+
+      const bmCount = document.getElementById(`bookmark-count`);
+      if (bmCount) bmCount.textContent = toPersianDigits(appState.bookmarks.length);
+
+      const domainChipsEl = document.getElementById(`domain-chips`);
+      if (domainChipsEl) {
+        let chipsHtml = `<button type="button" class="domain-chip ${appState.domainFilter === `all` ? `is-active` : ``}" onclick="setDomainFilter('all')">همه حوزه‌ها <span class="domain-count">${toPersianDigits(TEMPLATES.length)}</span></button>`;
+        DOMAINS.forEach(function(dom) {
+          const count = TEMPLATES.filter(function(t) { return t.domain === dom; }).length;
+          const activeClass = appState.domainFilter === dom ? `is-active` : ``;
+          chipsHtml += `<button type="button" class="domain-chip ${activeClass}" onclick="setDomainFilter('${dom}')">${dom} <span class="domain-count">${toPersianDigits(count)}</span></button>`;
+        });
+        domainChipsEl.innerHTML = chipsHtml;
+      }
+
+      const domainHint = document.getElementById(`active-domain-hint`);
+      if (domainHint) {
+        domainHint.textContent = appState.domainFilter === `all` ? `همه حوزه‌ها` : appState.domainFilter;
+      }
+    }
+
+    function renderCatalog() {
+      const container = document.getElementById(`catalog-container`);
+      const summaryEl = document.getElementById(`results-summary`);
+      const resetBtn = document.getElementById(`reset-filters-btn`);
+      if (!container) return;
+
+      const filtered = getFilteredTemplates();
+      const hasActiveFilters = appState.levelFilter !== `all` || appState.domainFilter !== `all` || appState.searchQuery.trim() !== `` || appState.bookmarksOnly;
+
+      if (summaryEl) {
+        summaryEl.textContent = `نمایش ${toPersianDigits(filtered.length)} قالب از ${toPersianDigits(TEMPLATES.length)} قالب`;
+      }
+      if (resetBtn) {
+        resetBtn.style.display = hasActiveFilters ? `inline-flex` : `none`;
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-box">
+            <p style="margin:0; font-weight:700; color:var(--ink-primary);">هیچ قالبی با فیلترهای فعلی پیدا نشد.</p>
+            <p style="margin:0;">عبارت جست‌وجو یا فیلتر سطح و حوزه را تغییر دهید.</p>
+            <button type="button" class="btn btn-primary btn-sm" onclick="resetAllFilters()">نمایش همه ۳۴ قالب</button>
+          </div>
+        `;
+        return;
+      }
+
+      let html = ``;
+      [`beginner`, `intermediate`, `advanced`].forEach(function(lvlKey) {
+        const items = filtered.filter(function(t) { return t.level === lvlKey; });
+        if (items.length === 0) return;
+        const lvl = LEVELS[lvlKey];
+
+        html += `
+          <section class="level-section" aria-label="${lvl.titleFa}">
+            <div class="level-banner" data-tier="${lvl.id}">
+              <div class="level-banner-grid">
+                <div style="display:flex; flex-direction:column; gap:6px;">
+                  <div class="level-banner-top">
+                    <h2 class="level-title">${lvl.titleFa}</h2>
+                    <span class="tier-badge ${lvl.badgeClass}">${toPersianDigits(items.length)} قالب</span>
+                  </div>
+                  <p class="level-focus">${lvl.focusFa}</p>
+                  <p class="level-intro">${lvl.introFa}</p>
+                </div>
+                <div class="level-art-wrap">${LEVEL_ART[lvl.id]}</div>
+              </div>
+            </div>
+        `;
+
+        if (appState.viewMode === `cards`) {
+          html += `<div class="cards-grid">`;
+          items.forEach(function(item) {
+            const isSelected = appState.selectedId === item.id;
+            const isBookmarked = appState.bookmarks.indexOf(item.id) !== -1;
+            const inWorkflow = appState.workflow.some(function(w) { return w.id === item.id; });
+            html += `
+              <article class="template-card ${isSelected ? `is-selected` : ``}" data-tier="${item.level}" onclick="selectTemplate('${item.id}')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectTemplate('${item.id}');}">
+                <div class="card-visual-banner">${getCardVisualSvg(item)}</div>
+                <div class="card-header-row">
+                  <span class="index-num">#${padTwo(item.globalNum)}</span>
+                  <span class="domain-tag">${item.domain}</span>
+                </div>
+                <h3 class="card-persian-title">${item.persian}</h3>
+                <p class="card-latin-name"><bdi dir="ltr">${item.latin}</bdi></p>
+                <p class="card-summary">${item.deckDesc}</p>
+                <div class="card-footer-actions">
+                  <div class="card-btn-group">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="selectTemplate('${item.id}'); event.stopPropagation();">جزئیات</button>
+                    <button type="button" class="btn ${inWorkflow ? `btn-primary` : `btn-secondary`} btn-sm" onclick="addToWorkflow('${item.id}', event)">
+                      ${inWorkflow ? `در زنجیره` : `+ زنجیره`}
+                    </button>
+                  </div>
+                  <button type="button" class="icon-toggle-btn ${isBookmarked ? `is-bookmarked` : ``}" aria-label="${isBookmarked ? `حذف نشان` : `نشان‌گذاری قالب`}" onclick="toggleBookmark('${item.id}', event)">
+                    ${ICONS.bookmark}
+                  </button>
+                </div>
+              </article>
+            `;
+          });
+          html += `</div>`;
+        } else {
+          html += `
+            <div class="table-wrap">
+              <div class="table-scroll-hint">
+                <span>برای مشاهده همه ستون‌ها جدول را به چپ و راست بکشید</span>
+                <span aria-hidden="true">↔</span>
+              </div>
+              <table class="briefing-table">
+                <thead>
+                  <tr>
+                    <th>ردیف</th>
+                    <th>نام لاتین قالب</th>
+                    <th>عنوان فارسی و ماهیت</th>
+                    <th>شرح عملکرد و کاربرد عملیاتی</th>
+                    <th>عملیات</th>
+                  </tr>
+                </thead>
+                <tbody>
+          `;
+          items.forEach(function(item) {
+            const isSelected = appState.selectedId === item.id;
+            const inWorkflow = appState.workflow.some(function(w) { return w.id === item.id; });
+            html += `
+              <tr class="${isSelected ? `is-selected` : ``}" onclick="selectTemplate('${item.id}')">
+                <td><span class="index-num">${toPersianDigits(item.levelNum)}</span></td>
+                <td><bdi dir="ltr" style="font-family:var(--font-mono); font-weight:600; color:var(--tier-intermediate); font-size:0.8rem;">${item.latin}</bdi></td>
+                <td><strong>${item.persian}</strong><br><span class="domain-tag">${item.domain}</span></td>
+                <td>${item.deckDesc}</td>
+                <td>
+                  <button type="button" class="btn ${inWorkflow ? `btn-primary` : `btn-secondary`} btn-sm" onclick="addToWorkflow('${item.id}', event)">
+                    ${inWorkflow ? `در زنجیره` : `+ زنجیره`}
+                  </button>
+                </td>
+              </tr>
+            `;
+          });
+          html += `</tbody></table></div>`;
+        }
+
+        html += `</section>`;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function renderInspector() {
+      const contentEl = document.getElementById(`inspector-content`);
+      const indexEl = document.getElementById(`insp-index`);
+      if (!contentEl) return;
+
+      const tpl = TEMPLATES.find(function(t) { return t.id === appState.selectedId; }) || TEMPLATES[0];
+      const lvl = LEVELS[tpl.level];
+      const isBookmarked = appState.bookmarks.indexOf(tpl.id) !== -1;
+      const inWorkflow = appState.workflow.some(function(w) { return w.id === tpl.id; });
+
+      if (indexEl) indexEl.textContent = `#${padTwo(tpl.globalNum)}`;
+
+      contentEl.innerHTML = `
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div class="inspector-visual-banner">${getCardVisualSvg(tpl)}</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+            <span class="tier-badge ${lvl.badgeClass}">${lvl.shortFa} · ردیف ${toPersianDigits(tpl.levelNum)}</span>
+            <span class="domain-tag">${tpl.domain}</span>
+          </div>
+
+          <h3 class="inspector-title">${tpl.persian}</h3>
+
+          <div class="inspector-latin">
+            <bdi dir="ltr">${tpl.latin}</bdi>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="copyTemplateName('${tpl.latin.replace(/'/g, `\\'`)}')" aria-label="کپی نام لاتین قالب">
+              ${ICONS.copy}
+              <span>کپی نام</span>
+            </button>
+          </div>
+
+          <div class="detail-block">
+            <span class="detail-block-label">${ICONS.info} عملکرد و نقش در اسلاید دک</span>
+            <p class="detail-block-text">${tpl.deckDesc}</p>
+          </div>
+
+          <div class="detail-block">
+            <span class="detail-block-label">${ICONS.book} توضیح تفصیلی (Built-in Templates)</span>
+            <p class="detail-block-text">${tpl.docDesc}</p>
+          </div>
+
+          <div class="detail-block">
+            <span class="detail-block-label">${ICONS.clock} بهترین زمان استفاده</span>
+            <p class="detail-block-text">${tpl.bestUse}</p>
+          </div>
+
+          <div class="inspector-actions">
+            <button type="button" class="btn ${inWorkflow ? `btn-secondary` : `btn-primary`} btn-sm" onclick="${inWorkflow ? `removeFromWorkflow('${tpl.id}')` : `addToWorkflow('${tpl.id}')`}">
+              ${inWorkflow ? ICONS.check : ICONS.plus}
+              <span>${inWorkflow ? `حذف از زنجیره` : `افزودن به زنجیره`}</span>
+            </button>
+            <button type="button" class="btn ${isBookmarked ? `btn-secondary is-active` : `btn-secondary`} btn-sm" onclick="toggleBookmark('${tpl.id}')">
+              ${ICONS.bookmark}
+              <span>${isBookmarked ? `نشان‌شده` : `نشان‌گذاری`}</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderWorkflow() {
+      const container = document.getElementById(`workflow-container`);
+      const footer = document.getElementById(`workflow-footer`);
+      const badge = document.getElementById(`wf-progress-badge`);
+      const fill = document.getElementById(`wf-progress-fill`);
+      if (!container) return;
+
+      const total = appState.workflow.length;
+      const doneCount = appState.workflow.filter(function(w) { return w.done; }).length;
+      const pct = total === 0 ? 0 : Math.round((doneCount / total) * 100);
+
+      if (badge) {
+        badge.textContent = total === 0
+          ? `۰ گام`
+          : `${toPersianDigits(doneCount)} از ${toPersianDigits(total)} تکمیل`;
+      }
+      const mobileWfBadge = document.getElementById(`mobile-wf-badge`);
+      if (mobileWfBadge) {
+        if (total > 0) {
+          mobileWfBadge.style.display = `inline-flex`;
+          mobileWfBadge.textContent = toPersianDigits(total);
+        } else {
+          mobileWfBadge.style.display = `none`;
+        }
+      }
+      if (fill) fill.style.width = `${pct}%`;
+
+      if (total === 0) {
+        container.innerHTML = `
+          <div class="empty-box">
+            <p style="margin:0;">هنوز قالبی به زنجیره مطالعاتی اضافه نشده است.</p>
+            <p style="margin:0;">روی «+ زنجیره» در کارت هر قالب کلیک کنید یا یکی از الگوهای آماده بالا را انتخاب نمایید.</p>
+          </div>
+        `;
+        if (footer) footer.style.display = `none`;
+        return;
+      }
+
+      let html = `<ol class="workflow-list">`;
+      appState.workflow.forEach(function(item, idx) {
+        const tpl = TEMPLATES.find(function(t) { return t.id === item.id; });
+        if (!tpl) return;
+        const lvl = LEVELS[tpl.level];
+        html += `
+          <li class="workflow-item ${item.done ? `is-done` : ``}">
+            <label class="wf-check-label">
+              <input type="checkbox" class="wf-checkbox" ${item.done ? `checked` : ``} onchange="toggleWorkflowDone('${tpl.id}')">
+              <span class="wf-info">
+                <span class="wf-name">${toPersianDigits(idx + 1)}. ${tpl.persian}</span>
+                <span class="wf-latin"><bdi dir="ltr">${tpl.latin}</bdi> · ${lvl.shortFa}</span>
+              </span>
+            </label>
+            <div class="wf-controls">
+              <button type="button" class="wf-icon-btn" aria-label="انتقال به بالا" onclick="moveWorkflowItem(${idx}, -1)">${ICONS.chevronUp}</button>
+              <button type="button" class="wf-icon-btn" aria-label="انتقال به پایین" onclick="moveWorkflowItem(${idx}, 1)">${ICONS.chevronDown}</button>
+              <button type="button" class="wf-icon-btn" aria-label="حذف از زنجیره" onclick="removeFromWorkflow('${tpl.id}')">${ICONS.trash}</button>
+            </div>
+          </li>
+        `;
+      });
+      html += `</ol>`;
+      container.innerHTML = html;
+
+      if (footer) {
+        footer.style.display = `flex`;
+        const clearBtn = document.getElementById(`clear-wf-btn`);
+        if (clearBtn) {
+          clearBtn.dataset.armed = `false`;
+          clearBtn.textContent = `پاک‌سازی زنجیره`;
+        }
+      }
+      requestAnimationFrame(function() { updateAmbientAnimation(true); });
+    }
+
+
+    let gnbPulseTimer = null;
+
+    function buildGeminiNotebookAnimHtml(statusText) {
+      return `
+        <svg class="gnb-anim-stage" viewBox="0 0 320 184" fill="none" aria-hidden="true">
+          <!-- Soft Ambient Glow -->
+          <circle cx="160" cy="92" r="64" fill="var(--tier-intermediate)" opacity="0.08"/>
+          <circle cx="160" cy="92" r="42" fill="var(--accent-gold)" opacity="0.10"/>
+
+          <!-- Interaction Ripple -->
+          <circle class="gnb-ripple" cx="160" cy="92" r="30" stroke="var(--accent-gold)" stroke-width="2.2" fill="none"/>
+
+          <!-- Orbital Rings -->
+          <g class="gnb-orbit-cw">
+            <circle cx="160" cy="92" r="56" stroke="var(--tier-intermediate)" stroke-width="1.2" stroke-dasharray="4 5" opacity="0.55"/>
+            <circle cx="160" cy="36" r="5.5" fill="var(--tier-beginner)"/>
+            <circle cx="216" cy="92" r="4.5" fill="var(--tier-intermediate)"/>
+          </g>
+
+          <g class="gnb-orbit-ccw">
+            <circle cx="160" cy="92" r="76" stroke="var(--tier-advanced)" stroke-width="1.1" stroke-dasharray="3 6" opacity="0.45"/>
+            <circle cx="160" cy="168" r="5" fill="var(--tier-advanced)"/>
+            <circle cx="84" cy="92" r="4.5" fill="var(--accent-gold)"/>
+          </g>
+
+          <!-- Data Flow Lines from Floating Source Cards -->
+          <path class="gnb-flow-line" d="M62 60 Q105 64 134 84" stroke="var(--tier-beginner)" stroke-width="1.8" stroke-linecap="round"/>
+          <path class="gnb-flow-line" d="M258 60 Q215 64 186 84" stroke="var(--tier-advanced)" stroke-width="1.8" stroke-linecap="round"/>
+          <path class="gnb-flow-line" d="M66 128 Q108 124 136 102" stroke="var(--tier-intermediate)" stroke-width="1.8" stroke-linecap="round"/>
+          <path class="gnb-flow-line" d="M254 128 Q212 124 184 102" stroke="var(--accent-gold)" stroke-width="1.8" stroke-linecap="round"/>
+
+          <!-- Left Floating Source Cards -->
+          <g class="gnb-float-left">
+            <rect x="18" y="38" width="46" height="36" rx="7" fill="var(--surface-subtle)" stroke="var(--tier-beginner)" stroke-width="1.5"/>
+            <rect x="26" y="48" width="26" height="4" rx="2" fill="var(--tier-beginner)" opacity="0.85"/>
+            <rect x="26" y="56" width="18" height="4" rx="2" fill="var(--tier-beginner)" opacity="0.45"/>
+            <rect x="26" y="64" width="22" height="4" rx="2" fill="var(--tier-beginner)" opacity="0.3"/>
+
+            <rect x="24" y="110" width="44" height="34" rx="7" fill="var(--surface-subtle)" stroke="var(--tier-intermediate)" stroke-width="1.5"/>
+            <rect x="32" y="120" width="24" height="4" rx="2" fill="var(--tier-intermediate)" opacity="0.8"/>
+            <rect x="32" y="128" width="16" height="4" rx="2" fill="var(--tier-intermediate)" opacity="0.45"/>
+          </g>
+
+          <!-- Right Floating Source Cards -->
+          <g class="gnb-float-right">
+            <rect x="256" y="38" width="46" height="36" rx="7" fill="var(--surface-subtle)" stroke="var(--tier-advanced)" stroke-width="1.5"/>
+            <rect x="264" y="48" width="26" height="4" rx="2" fill="var(--tier-advanced)" opacity="0.85"/>
+            <rect x="264" y="56" width="18" height="4" rx="2" fill="var(--tier-advanced)" opacity="0.45"/>
+            <rect x="264" y="64" width="22" height="4" rx="2" fill="var(--tier-advanced)" opacity="0.3"/>
+
+            <rect x="252" y="110" width="44" height="34" rx="7" fill="var(--surface-subtle)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+            <rect x="260" y="120" width="24" height="4" rx="2" fill="var(--accent-gold)" opacity="0.9"/>
+            <rect x="260" y="128" width="16" height="4" rx="2" fill="var(--accent-gold)" opacity="0.5"/>
+          </g>
+
+          <!-- Central Open Notebook Base -->
+          <path d="M126 116 C138 110 150 112 160 118 C170 112 182 110 194 116 L194 134 C182 128 170 130 160 136 C150 130 138 128 126 134 Z" fill="var(--surface-subtle)" stroke="var(--border-strong)" stroke-width="1.6" stroke-linejoin="round"/>
+          <line x1="160" y1="118" x2="160" y2="136" stroke="var(--border-strong)" stroke-width="1.4"/>
+
+          <!-- Central Gemini 4-Point Sparkle Star -->
+          <g class="gnb-star-core">
+            <path d="M160 64 C162 80 172 90 188 92 C172 94 162 104 160 120 C158 104 148 94 132 92 C148 90 158 80 160 64 Z" fill="var(--tier-intermediate)" stroke="var(--accent-gold)" stroke-width="1.6"/>
+            <path d="M160 75 C161.2 84 166 89 175 92 C166 95 161.2 100 160 109 C158.8 100 154 95 145 92 C154 89 158.8 84 160 75 Z" fill="var(--accent-gold)"/>
+            <circle cx="160" cy="92" r="3.2" fill="#ffffff"/>
+          </g>
+        </svg>
+        <div class="gnb-anim-caption">
+          <div class="gnb-anim-brand">
+            <span class="gnb-anim-brand-dot" aria-hidden="true"></span>
+            <bdi dir="ltr">GeminiNoteBook</bdi>
+          </div>
+          <div class="gnb-anim-status">${statusText}</div>
+        </div>
+      `;
+    }
+
+    function updateAmbientAnimation(triggerPulse) {
+      const catalogSlot = document.getElementById(`catalog-ambient-slot`);
+      const asideSlot = document.getElementById(`aside-ambient-slot`);
+      const catalogCol = document.querySelector(`.catalog-column`);
+      const asideCol = document.querySelector(`.inspector-aside`);
+      if (!catalogSlot || !asideSlot || !catalogCol || !asideCol) return;
+
+      // On narrow screens (stacked layout), hide both ambient fillers
+      if (window.innerWidth <= 1024) {
+        catalogSlot.classList.remove(`is-visible`);
+        asideSlot.classList.remove(`is-visible`);
+        return;
+      }
+
+      // Temporarily measure content heights without the ambient slots
+      const catalogWasVisible = catalogSlot.classList.contains(`is-visible`);
+      const asideWasVisible = asideSlot.classList.contains(`is-visible`);
+      catalogSlot.classList.remove(`is-visible`);
+      asideSlot.classList.remove(`is-visible`);
+
+      const catalogContentHeight = catalogCol.offsetHeight;
+      const asideContentHeight = asideCol.offsetHeight;
+      const diff = catalogContentHeight - asideContentHeight;
+      const threshold = 160;
+
+      const filteredCount = getFilteredTemplates().length;
+      const statusText = `هوش تحلیلی مبتنی بر منابع · ${toPersianDigits(filteredCount)} قالب در نمای فعلی`;
+
+      let activeSlot = null;
+
+      if (diff < -threshold) {
+        // Right column (catalog) is shorter -> empty space under catalog
+        const targetMinH = Math.min(Math.max(Math.abs(diff) - 24, 280), 420);
+        catalogSlot.style.minHeight = `${targetMinH}px`;
+        if (!catalogWasVisible || !catalogSlot.innerHTML.trim()) {
+          catalogSlot.innerHTML = buildGeminiNotebookAnimHtml(statusText);
+        } else {
+          const st = catalogSlot.querySelector(`.gnb-anim-status`);
+          if (st) st.textContent = statusText;
+        }
+        catalogSlot.classList.add(`is-visible`);
+        activeSlot = catalogSlot;
+      } else if (diff > threshold) {
+        // Left column (aside) is shorter -> empty space under aside
+        const targetMinH = Math.min(Math.max(diff - 24, 290), 380);
+        asideSlot.style.minHeight = `${targetMinH}px`;
+        if (!asideWasVisible || !asideSlot.innerHTML.trim()) {
+          asideSlot.innerHTML = buildGeminiNotebookAnimHtml(statusText);
+        } else {
+          const st = asideSlot.querySelector(`.gnb-anim-status`);
+          if (st) st.textContent = statusText;
+        }
+        asideSlot.classList.add(`is-visible`);
+        activeSlot = asideSlot;
+      }
+
+      if (triggerPulse && activeSlot) {
+        activeSlot.classList.remove(`is-pulsing`);
+        void activeSlot.offsetWidth; // restart animation
+        activeSlot.classList.add(`is-pulsing`);
+        clearTimeout(gnbPulseTimer);
+        gnbPulseTimer = setTimeout(function() {
+          activeSlot.classList.remove(`is-pulsing`);
+        }, 760);
+      }
+    }
+
+    function renderAll() {
+      renderControlsState();
+      renderCatalog();
+      renderInspector();
+      renderWorkflow();
+      requestAnimationFrame(function() { updateAmbientAnimation(true); });
+    }
+
+    function initApp() {
+      loadPersistedState();
+      applyTheme(appState.theme);
+      const levelSelect = document.getElementById(`level-select`);
+      if (levelSelect) levelSelect.value = appState.levelFilter;
+      const domainSelect = document.getElementById(`domain-select`);
+      if (domainSelect) domainSelect.value = appState.domainFilter;
+      renderAll();
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+    window.addEventListener(`resize`, function() {
+      if (window.innerWidth > 1024 && activeMobileSheet) {
+        closeMobileSheet();
+      }
+      updateAmbientAnimation(false);
+    });
+    document.addEventListener(`keydown`, function(e) {
+      if (e.key === `Escape` && activeMobileSheet) {
+        closeMobileSheet();
+      }
+    });
+  </script>
+</body>
+</html>
