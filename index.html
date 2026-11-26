@@ -3,63 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>راهنمای جامع و تعاملی GeminiNoteBook و قالب‌های آماده — Powered By SLA</title>
+  <title>راهنمای Gemini Notebook (NotebookLM) و ۳۴ قالب آماده</title>
+  <meta name="description" content="راهنمای فارسی و تعاملی Gemini Notebook (NotebookLM) برای کار با منابع، گفت‌وگو و استودیو، همراه با ۳۴ قالب آماده و نمونه‌های پرامپت در سه سطح.">
   <style>
     :root {
       color-scheme: light;
 
       /* Light Theme: Cheerful Sunlit Editorial + Vibrant Pastel Glows */
-      --bg-page: #fdfaf5;
-      --bg-gradient-1: rgba(16, 185, 129, 0.12);
-      --bg-gradient-2: rgba(236, 72, 153, 0.10);
-      --bg-gradient-3: rgba(14, 165, 233, 0.11);
+      --bg-page: #fff8ef;
+      --bg-gradient-1: rgba(89, 221, 166, 0.29);
+      --bg-gradient-2: rgba(255, 122, 188, 0.25);
+      --bg-gradient-3: rgba(116, 192, 255, 0.27);
 
-      --surface-card: #ffffff;
-      --surface-subtle: #f6f3fb;
-      --surface-elevated: #ffffff;
-      --surface-hover: #ede7f9;
-      --surface-glass: rgba(255, 255, 255, 0.90);
+      --surface-card: #fffdfc;
+      --surface-subtle: #fbf0fc;
+      --surface-elevated: #fff9ff;
+      --surface-hover: #f5e1f8;
+      --surface-glass: rgba(255, 251, 249, 0.92);
 
       /* Ink */
-      --ink-primary: #181a2a;
-      --ink-secondary: #434963;
-      --ink-muted: #66708f;
+      --ink-primary: #29163d;
+      --ink-secondary: #513e60;
+      --ink-muted: #685477;
 
       /* Borders & Shadows */
-      --border-strong: #272d47;
-      --border-subtle: #e5def2;
-      --border-input: #cfc4e6;
+      --border-strong: #4d335d;
+      --border-subtle: #ecd9ed;
+      --border-input: #9977ac;
       --shadow-sm: 0 3px 10px rgba(79, 70, 229, 0.06);
+      --card-rim-light: rgba(255, 255, 255, 0.88);
+      --card-cast-shadow: rgba(68, 36, 78, 0.23);
       --shadow-md: 0 10px 28px rgba(79, 70, 229, 0.09);
       --shadow-lg: 0 18px 44px rgba(79, 70, 229, 0.13);
 
       /* Brand & Cheerful Accents */
-      --accent-primary: #4f46e5;
-      --accent-primary-hover: #4338ca;
+      --accent-primary: #6b33bd;
+      --accent-primary-hover: #542693;
       --on-accent: #ffffff;
-      --accent-gold: #f59e0b;
-      --accent-gold-soft: #fef3c7;
-      --accent-gold-ink: #92400e;
-      --accent-pink: #ec4899;
-      --accent-pink-soft: #fce7f3;
-      --focus-ring: #0ea5e9;
+      --accent-gold: #ffbf4b;
+      --accent-gold-soft: #ffedbf;
+      --accent-gold-ink: #773708;
+      --accent-pink: #d43187;
+      --accent-pink-soft: #ffdeef;
+      --focus-ring: #1a66c7;
 
       /* Vibrant Tier Identity */
-      --tier-beginner: #059669;
-      --tier-beginner-bg: #d1fae5;
-      --tier-beginner-border: #6ee7b7;
+      --tier-beginner: #116b4d;
+      --tier-beginner-bg: #d9faec;
+      --tier-beginner-border: #77d4b5;
 
-      --tier-intermediate: #0284c7;
-      --tier-intermediate-bg: #e0f2fe;
-      --tier-intermediate-border: #7dd3fc;
+      --tier-intermediate: #1759ad;
+      --tier-intermediate-bg: #e0f2ff;
+      --tier-intermediate-border: #92caff;
 
-      --tier-advanced: #9333ea;
-      --tier-advanced-bg: #f3e8ff;
-      --tier-advanced-border: #d8b4fe;
+      --tier-advanced: #902666;
+      --tier-advanced-bg: #fce2f2;
+      --tier-advanced-border: #eda8d5;
 
-      --positive: #059669;
-      --danger: #e11d48;
-      --danger-bg: #fff1f2;
+      --positive: #116b4d;
+      --danger: #ba194c;
+      --danger-bg: #ffedf3;
 
       /* Offline-Safe Persian & Monospace Font Stacks */
       --font-headline: 'Vazirmatn', 'IRANSansX', 'IRANSans', 'Segoe UI', 'Tahoma', system-ui, -apple-system, sans-serif;
@@ -87,53 +90,55 @@
     [data-theme="dark"] {
       color-scheme: dark;
 
-      --bg-page: #0f1221;
-      --bg-gradient-1: rgba(16, 185, 129, 0.14);
-      --bg-gradient-2: rgba(236, 72, 153, 0.14);
-      --bg-gradient-3: rgba(56, 189, 248, 0.14);
+      --bg-page: #1b122d;
+      --bg-gradient-1: rgba(87, 218, 168, 0.18);
+      --bg-gradient-2: rgba(242, 114, 188, 0.21);
+      --bg-gradient-3: rgba(127, 173, 255, 0.20);
 
-      --surface-card: #171c30;
-      --surface-subtle: #1f2640;
-      --surface-elevated: #232b48;
-      --surface-hover: #2a3456;
-      --surface-glass: rgba(23, 28, 48, 0.90);
+      --surface-card: #271b3d;
+      --surface-subtle: #33224a;
+      --surface-elevated: #392652;
+      --surface-hover: #422d5c;
+      --surface-glass: rgba(39, 27, 61, 0.93);
 
-      --ink-primary: #f5f7ff;
-      --ink-secondary: #c5cde6;
-      --ink-muted: #93a0c4;
+      --ink-primary: #fff4ff;
+      --ink-secondary: #e7d8ef;
+      --ink-muted: #c7b2d4;
 
-      --border-strong: #475682;
-      --border-subtle: #2b3556;
-      --border-input: #3a4770;
+      --border-strong: #8a71a2;
+      --border-subtle: #543a69;
+      --border-input: #9377a9;
       --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.32);
+      --card-rim-light: rgba(250, 222, 255, 0.18);
+      --card-cast-shadow: rgba(8, 2, 17, 0.66);
       --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.42);
       --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.55);
 
-      --accent-primary: #818cf8;
-      --accent-primary-hover: #a5b4fc;
-      --on-accent: #0f1221;
-      --accent-gold: #fbbf24;
-      --accent-gold-soft: rgba(251, 191, 36, 0.18);
-      --accent-gold-ink: #fde68a;
-      --accent-pink: #f472b6;
-      --accent-pink-soft: rgba(244, 114, 182, 0.18);
-      --focus-ring: #38bdf8;
+      --accent-primary: #cfa8ff;
+      --accent-primary-hover: #e0c1ff;
+      --on-accent: #261437;
+      --accent-gold: #ffd273;
+      --accent-gold-soft: #41322f;
+      --accent-gold-ink: #ffe4a2;
+      --accent-pink: #ffa9d8;
+      --accent-pink-soft: #482a47;
+      --focus-ring: #8dceff;
 
-      --tier-beginner: #34d399;
-      --tier-beginner-bg: rgba(16, 185, 129, 0.18);
-      --tier-beginner-border: rgba(52, 211, 153, 0.45);
+      --tier-beginner: #70e8b3;
+      --tier-beginner-bg: #233f3e;
+      --tier-beginner-border: #4d9d84;
 
-      --tier-intermediate: #38bdf8;
-      --tier-intermediate-bg: rgba(56, 189, 248, 0.18);
-      --tier-intermediate-border: rgba(56, 189, 248, 0.45);
+      --tier-intermediate: #91ccff;
+      --tier-intermediate-bg: #273858;
+      --tier-intermediate-border: #557eaf;
 
-      --tier-advanced: #c084fc;
-      --tier-advanced-bg: rgba(192, 132, 252, 0.18);
-      --tier-advanced-border: rgba(192, 132, 252, 0.45);
+      --tier-advanced: #ffa9d8;
+      --tier-advanced-bg: #462844;
+      --tier-advanced-border: #a36393;
 
-      --positive: #34d399;
-      --danger: #fb7185;
-      --danger-bg: rgba(251, 113, 133, 0.15);
+      --positive: #70e8b3;
+      --danger: #ffa1ba;
+      --danger-bg: #482a43;
     }
 
     *, *::before, *::after {
@@ -474,13 +479,11 @@
 
     .page-tab-btn:hover {
       background: var(--surface-card);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
     }
 
     .page-tab-btn.is-active {
       background: var(--surface-card);
-      box-shadow: var(--shadow-md);
+      --card-ring: var(--card-tone);
     }
 
     .page-tab-btn.is-active::before {
@@ -489,17 +492,14 @@
 
     .page-tab-btn[data-tier="beginner"].is-active {
       border-color: var(--tier-beginner);
-      box-shadow: 0 0 0 1.5px var(--tier-beginner), var(--shadow-md);
     }
 
     .page-tab-btn[data-tier="intermediate"].is-active {
       border-color: var(--tier-intermediate);
-      box-shadow: 0 0 0 1.5px var(--tier-intermediate), var(--shadow-md);
     }
 
     .page-tab-btn[data-tier="advanced"].is-active {
       border-color: var(--tier-advanced);
-      box-shadow: 0 0 0 1.5px var(--tier-advanced), var(--shadow-md);
     }
 
     .tab-text-group {
@@ -1048,15 +1048,13 @@
     }
 
     .nlm-part-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
       background: var(--surface-card);
     }
 
     .nlm-part-card.is-active {
       background: var(--surface-card);
       border-color: var(--tier-intermediate);
-      box-shadow: 0 0 0 1.5px var(--tier-intermediate), var(--shadow-md);
+      --card-ring: var(--tier-intermediate);
     }
 
 
@@ -1135,8 +1133,6 @@
     }
 
     .pillar-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
       background: var(--surface-card);
     }
 
@@ -1175,8 +1171,23 @@
       gap: var(--space-md);
     }
 
+    .tier-overview-card,
+    .tier-page-hero {
+      --tier-wash: var(--tier-beginner-bg);
+      background: linear-gradient(155deg, var(--tier-wash), var(--surface-card) 78%);
+    }
+
+    .tier-overview-card[data-tier="intermediate"],
+    .tier-page-hero[data-tier="intermediate"] {
+      --tier-wash: var(--tier-intermediate-bg);
+    }
+
+    .tier-overview-card[data-tier="advanced"],
+    .tier-page-hero[data-tier="advanced"] {
+      --tier-wash: var(--tier-advanced-bg);
+    }
+
     .tier-overview-card {
-      background: var(--surface-subtle);
       border: 1px solid var(--border-subtle);
       border-top: 4px solid var(--tier-beginner);
       border-radius: var(--radius-lg);
@@ -1189,12 +1200,6 @@
 
     .tier-overview-card[data-tier="intermediate"] { border-top-color: var(--tier-intermediate); }
     .tier-overview-card[data-tier="advanced"] { border-top-color: var(--tier-advanced); }
-
-    .tier-overview-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      background: var(--surface-card);
-    }
 
     .tier-sample-list {
       list-style: none;
@@ -1223,7 +1228,6 @@
        SHARED CONTROLS, CARDS, TABLES & ASIDE (Pages 2, 3, 4)
        ============================================================ */
     .tier-page-hero {
-      background: var(--surface-card);
       border: 1px solid var(--border-subtle);
       border-right: 6px solid var(--tier-beginner);
       border-radius: var(--radius-xl);
@@ -1479,11 +1483,6 @@
     .template-detail-card[data-tier="beginner"] { border-top-color: var(--tier-beginner); }
     .template-detail-card[data-tier="intermediate"] { border-top-color: var(--tier-intermediate); }
     .template-detail-card[data-tier="advanced"] { border-top-color: var(--tier-advanced); }
-
-    .template-detail-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
 
     .tpl-card-top {
       display: grid;
@@ -2073,30 +2072,64 @@
 
 
     /* Realistic Small Slow Turtle with Natural Pauses on Dotted Line */
+    .turtle-track-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: -4px 0 -6px;
+    }
+
     .turtle-track-wrap {
+      --turtle-width: clamp(48px, 6.5vw, 66px);
       position: relative;
-      width: 100%;
-      height: 30px;
+      flex: 1;
+      height: calc(var(--turtle-width) * 0.72);
       display: flex;
       align-items: flex-end;
       overflow: hidden;
-      margin: -4px 0 -6px 0;
       direction: ltr;
+    }
+
+    .turtle-motion-toggle:not([hidden]) {
+      display: grid;
+      place-items: center;
+      flex: 0 0 30px;
+      height: 30px;
+      padding: 0;
+      border: 1px solid var(--border-input);
+      border-radius: 50%;
+      background: var(--surface-subtle);
+      color: var(--accent-primary);
+      cursor: pointer;
+    }
+
+    .turtle-motion-toggle:hover {
+      background: var(--surface-hover);
+    }
+
+    .turtle-motion-toggle .turtle-pause-icon,
+    .turtle-motion-toggle.is-running .turtle-play-icon {
+      display: none;
+    }
+
+    .turtle-motion-toggle.is-running .turtle-pause-icon {
+      display: inline;
     }
 
     .turtle-dotted-line {
       width: 100%;
-      border-bottom: 1.8px dashed #5a7243;
-      opacity: 0.48;
+      border-bottom: 1.8px dashed var(--tier-beginner);
+      opacity: 0.55;
       margin-bottom: 3px;
     }
 
     .turtle-walker {
       position: absolute;
-      bottom: 2px;
-      left: 12px;
-      width: 42px;
-      height: 24px;
+      /* Keep the contact shadow at the same ground level at every size. */
+      bottom: calc(4px - var(--turtle-width) / 24);
+      left: calc(var(--turtle-width) * 0.23);
+      width: var(--turtle-width);
+      aspect-ratio: 84 / 46;
       pointer-events: none;
       will-change: transform;
     }
@@ -2104,25 +2137,133 @@
     .turtle-body-wrap {
       width: 100%;
       height: 100%;
-      transform-origin: center bottom;
-      animation: turtleStep 2.1s ease-in-out infinite;
+    }
+
+    .turtle-body-wrap > svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .turtle-shell-sheen {
+      animation: turtleShellLight 6s ease-in-out infinite alternate;
+    }
+
+    .turtle-walker.is-paused .turtle-shell-sheen {
+      animation-play-state: paused;
+    }
+
+    @keyframes turtleShellLight {
+      from { transform: translateX(-2px); opacity: 0.45; }
+      to { transform: translateX(3px); opacity: 0.78; }
     }
 
     .turtle-walker.is-facing-left .turtle-body-wrap {
       transform: scaleX(-1);
     }
 
-    .turtle-walker.is-paused .turtle-body-wrap {
+    .turtle-head-group {
+      transform-box: view-box;
+      transform-origin: 71px 24px;
+      transform: translateX(0) scaleX(1);
+      transition: transform var(--dur-mid) var(--ease-out);
+    }
+
+    .turtle-walker.is-looking-back .turtle-head-group {
+      transform: translateX(-4px) scaleX(-1);
+    }
+
+    .turtle-bread {
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      pointer-events: none;
+      visibility: hidden;
+      transform-origin: left bottom;
+    }
+
+    .turtle-bread.is-served {
+      visibility: visible;
+    }
+
+    .turtle-bread.is-on-left {
+      transform-origin: right bottom;
+    }
+
+    .turtle-bread.is-being-eaten {
+      animation: turtleEatBread var(--turtle-meal-duration) ease-in-out both;
+    }
+
+    .turtle-feeding-neck,
+    .turtle-body-glow {
+      visibility: hidden;
+    }
+
+    .turtle-walker.is-eating .turtle-head-group {
+      animation: turtleGroundBites var(--turtle-meal-duration) ease-in-out both;
+    }
+
+    .turtle-walker.is-eating .turtle-feeding-neck {
+      visibility: visible;
+      animation: turtleLowerNeck var(--turtle-meal-duration) ease-in-out both;
+    }
+
+    .turtle-walker.is-eating .turtle-body-glow {
+      visibility: visible;
+      transform-box: view-box;
+      transform-origin: 37px 24px;
+      animation: turtleRadiate 2.8s ease-out both;
+    }
+
+    .turtle-shell-crumb {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: turtleNeonPulse 4.8s ease-in-out infinite;
+    }
+
+    .turtle-walker.is-paused .turtle-shell-crumb {
       animation-play-state: paused;
     }
 
-    .turtle-head-group {
-      transform-origin: 54px 25px;
-      transition: transform 420ms var(--ease-out);
+    .turtle-walker.is-eating .turtle-shell-crumb {
+      animation: turtleMealSpark 2.8s ease-out both;
     }
 
-    .turtle-walker.is-paused .turtle-head-group {
-      transform: rotate(-8deg) translate(1.2px, -1.2px);
+    @keyframes turtleGroundBites {
+      0%, 100% { transform: translate(0, 0) rotate(0); }
+      15%, 35%, 55%, 75%, 91% { transform: translate(1px, 4px) rotate(18deg); }
+      25%, 45% { transform: translate(3px, 11px) rotate(24deg); }
+      65%, 85% { transform: translate(1.5px, 12.8px) rotate(24deg); }
+    }
+
+    @keyframes turtleLowerNeck {
+      0%, 100% { opacity: 0; }
+      12%, 89% { opacity: 1; }
+    }
+
+    @keyframes turtleEatBread {
+      0%, 24% { transform: scale(1); }
+      29%, 44% { transform: scale(0.82); }
+      49%, 64% { transform: scale(0.62); }
+      69%, 84% { transform: scale(0.4); opacity: 1; }
+      92%, 100% { transform: scale(0.16); opacity: 0; }
+    }
+
+    @keyframes turtleRadiate {
+      0% { opacity: 0; transform: scale(0.76); }
+      28% { opacity: 1; transform: scale(1.08); }
+      100% { opacity: 0; transform: scale(1.23); }
+    }
+
+    @keyframes turtleNeonPulse {
+      0%, 65%, 100% { opacity: 0.84; transform: scale(0.83); }
+      82% { opacity: 1; transform: scale(1.04); }
+    }
+
+    @keyframes turtleMealSpark {
+      0%, 100% { opacity: 0.88; transform: scale(0.88); }
+      26% { opacity: 1; transform: scale(1.16); }
     }
 
     .turtle-leg-front {
@@ -2138,11 +2279,6 @@
     .turtle-walker.is-paused .turtle-leg-front,
     .turtle-walker.is-paused .turtle-leg-back {
       animation-play-state: paused;
-    }
-
-    @keyframes turtleStep {
-      0%, 100% { translate: 0 0; }
-      50% { translate: 0 -1.2px; }
     }
 
     @keyframes turtleLegSwing {
@@ -2425,11 +2561,69 @@
       .view-actions { flex-wrap: wrap; }
     }
 
+    /* A lit rim, a solid lower edge and a softer cast shadow give each card depth. */
+    .raised-card,
+    .welcome-hero-card,
+    .tier-page-hero {
+      --card-depth: 3px;
+      --card-drop: 8px;
+      --card-edge: color-mix(in srgb, var(--border-subtle) 72%, var(--card-tone, var(--accent-primary)));
+      box-shadow:
+        inset 0 1px 0 var(--card-rim-light),
+        0 0 0 1.5px var(--card-ring, transparent),
+        0 var(--card-depth) 0 var(--card-edge),
+        0 var(--card-drop) 15px -5px var(--card-cast-shadow);
+    }
+
+    .raised-card[data-tier="beginner"], .prompt-compare-card.strong { --card-tone: var(--tier-beginner); }
+    .raised-card[data-tier="intermediate"], .nlm-part-card { --card-tone: var(--tier-intermediate); }
+    .raised-card[data-tier="advanced"] { --card-tone: var(--tier-advanced); }
+    .prompt-compare-card.weak { --card-tone: var(--danger); }
+
+    .raised-card {
+      transition: transform 190ms var(--ease-out), box-shadow 190ms var(--ease-out),
+                  background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+    }
+
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .raised-card:is(:hover, :focus-visible) {
+        --card-depth: 4px;
+        --card-drop: 13px;
+        transform: perspective(1000px) translateY(-3px) rotateX(2deg) rotateY(-1.25deg);
+      }
+
+      .page-tab-btn.raised-card:active {
+        --card-depth: 1px;
+        --card-drop: 3px;
+        transform: perspective(1000px) translateY(1px);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+      }
+
+      .turtle-leg-front,
+      .turtle-leg-back,
+      .turtle-shell-sheen,
+      .turtle-walker.is-eating .turtle-head-group,
+      .turtle-walker.is-eating .turtle-feeding-neck,
+      .turtle-walker.is-eating .turtle-body-glow,
+      .turtle-bread.is-being-eaten,
+      .turtle-shell-crumb,
+      .turtle-walker.is-eating .turtle-shell-crumb {
+        animation: none;
+      }
+
+      .turtle-walker.is-eating .turtle-head-group {
+        transform: translate(2px, 11px) rotate(24deg);
+      }
+
+      .turtle-walker.is-eating .turtle-body-glow {
+        opacity: 0.55;
       }
     }
   </style>
@@ -2443,7 +2637,7 @@
       <div class="dossier-bar">
         <div class="dossier-bar-group">
           <button type="button" class="dossier-pill" onclick="goToPage('welcome')" title="بازگشت به صفحه خوش‌آمدگویی">
-            PLAYBOOK // GeminiNoteBook
+            Gemini Notebook
           </button>
           <span class="offline-pill">
             <svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
@@ -2498,80 +2692,153 @@
         </svg>
       </div>
 
-      <!-- Realistic Small Slow Turtle with Natural Pauses on Dotted Line -->
-      <div class="turtle-track-wrap" id="turtle-track" aria-hidden="true">
-        <div class="turtle-dotted-line"></div>
-        <div class="turtle-walker" id="turtle-walker">
-          <div class="turtle-body-wrap">
-            <svg viewBox="0 0 84 46" fill="none" width="42" height="24">
-              <defs>
-                <linearGradient id="shellGrad" x1="34" y1="6" x2="34" y2="33" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#877548"/>
-                  <stop offset="42%" stop-color="#5b6637"/>
-                  <stop offset="100%" stop-color="#384222"/>
-                </linearGradient>
-                <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#7c8f55"/>
-                  <stop offset="100%" stop-color="#4e5e32"/>
-                </linearGradient>
-              </defs>
-              <!-- Soft Ground Shadow -->
-              <ellipse cx="38" cy="42.5" rx="28" ry="2.2" fill="#1b2212" opacity="0.16"/>
-              <!-- Tapered Realistic Tail -->
-              <path d="M12 31 C8 32 5 34 3 35 C6 36 10 35 14 34 Z" fill="url(#skinGrad)" stroke="#2f3a1c" stroke-width="1"/>
-              <!-- Far-side Legs (Depth) -->
-              <path d="M23 31 C22 36 23 40 26 40 C28 40 29 37 29 32 Z" fill="#46542c" stroke="#2b361a" stroke-width="1"/>
-              <path d="M44 31 C44 36 45 40 48 40 C50 40 51 37 50 32 Z" fill="#46542c" stroke="#2b361a" stroke-width="1"/>
-              <!-- Neck & Realistic Tortoise Head -->
-              <g class="turtle-head-group">
-                <path d="M53 27 C58 27 62 24 66 21 C70 18.5 76 19 79 22 C80.5 23.8 80 27 77.5 28.5 C74 30.2 68 29.8 63 31 L53 32 Z" fill="url(#skinGrad)" stroke="#2f3a1c" stroke-width="1.2" stroke-linejoin="round"/>
-                <!-- Subtle Neck Folds -->
+      <div class="turtle-track-row">
+        <button type="button" id="turtle-motion-toggle" class="turtle-motion-toggle" aria-label="پخش حرکت لاک‌پشت" hidden>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path class="turtle-play-icon" d="M5 2.5v11l8-5.5Z"/>
+            <path class="turtle-pause-icon" d="M4 3h3v10H4zM9 3h3v10H9z"/>
+          </svg>
+        </button>
+        <div class="turtle-track-wrap" id="turtle-track" aria-hidden="true">
+          <div class="turtle-dotted-line"></div>
+          <svg class="turtle-bread" id="turtle-bread" viewBox="0 0 24 20" width="6" height="5" fill="none">
+            <ellipse cx="12" cy="18" rx="11" ry="1.5" fill="#4c2b1b" opacity="0.22"/>
+            <path d="M2 14 C2 7.4 6.2 3.6 11.8 3.6 C17.3 3.6 21.3 7.7 22 13.9 Q22.4 17.4 19.5 17.4 H4.3 Q1.7 17.4 2 14 Z" fill="#ffcb69" stroke="#944417" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M7 11 L11 7.8 M12 13.1 L16 9.4" stroke="#fff2bd" stroke-width="1.9" stroke-linecap="round"/>
+          </svg>
+          <div class="turtle-walker is-paused" id="turtle-walker">
+            <div class="turtle-body-wrap">
+              <svg viewBox="0 0 84 46" fill="none" width="84" height="46">
+                <defs>
+                  <path id="turtle-dome" d="M8.7 28.5 C9.6 15.2 18.6 5.1 30.5 4.5 C43.5 3.4 54.8 12.3 58.5 25.4 C57 29.4 46.2 32.8 32.2 33.1 C20.7 33.3 12.2 31.6 8.7 28.5 Z"/>
+                  <clipPath id="turtle-dome-clip"><use href="#turtle-dome"/></clipPath>
+                  <radialGradient id="shellGrad" cx="38%" cy="18%" r="79%">
+                    <stop stop-color="#f1c877"/><stop offset=".37" stop-color="#bd873e"/>
+                    <stop offset=".7" stop-color="#69672f"/><stop offset="1" stop-color="#263b2b"/>
+                  </radialGradient>
+                  <radialGradient id="turtle-scute" cx="33%" cy="18%" r="88%">
+                    <stop stop-color="#e8bf70"/><stop offset=".36" stop-color="#c49751"/>
+                    <stop offset=".72" stop-color="#918040"/><stop offset="1" stop-color="#456044"/>
+                  </radialGradient>
+                  <linearGradient id="turtle-shell-shade" x1="23" y1="5" x2="39" y2="33" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#fff1b0" stop-opacity=".23"/><stop offset=".39" stop-color="#f6bc71" stop-opacity="0"/>
+                    <stop offset=".77" stop-color="#203c2c" stop-opacity=".18"/><stop offset="1" stop-color="#132b27" stop-opacity=".78"/>
+                  </linearGradient>
+                  <linearGradient id="turtle-rim" x2="0" y2="1">
+                    <stop stop-color="#f4d893"/><stop offset=".40" stop-color="#ac8950"/>
+                    <stop offset=".76" stop-color="#5b512f"/><stop offset="1" stop-color="#223a30"/>
+                  </linearGradient>
+                  <radialGradient id="turtle-sheen">
+                    <stop stop-color="#fff8d0" stop-opacity=".85"/><stop offset="1" stop-color="#fff8d0" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="turtle-shadow">
+                    <stop stop-color="#17271d" stop-opacity=".55"/><stop offset="1" stop-color="#17271d" stop-opacity="0"/>
+                  </radialGradient>
+                  <linearGradient id="skinGrad" x1=".18" y1="0" x2=".7" y2="1">
+                    <stop stop-color="#d6d88d"/><stop offset=".28" stop-color="#a6be76"/>
+                    <stop offset=".57" stop-color="#799756"/><stop offset="1" stop-color="#395840"/>
+                  </linearGradient>
+                  <radialGradient id="turtleGlow">
+                    <stop offset=".22" stop-color="#b7fff6"/>
+                    <stop offset=".55" stop-color="#1de8ed" stop-opacity=".78"/>
+                    <stop offset="1" stop-color="#826aff" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="turtle-neon-halo">
+                    <stop stop-color="#f1ffff"/><stop offset=".17" stop-color="#9ffff4" stop-opacity=".98"/>
+                    <stop offset=".38" stop-color="#00ffe4" stop-opacity=".79"/><stop offset=".65" stop-color="#13aafc" stop-opacity=".44"/>
+                    <stop offset="1" stop-color="#9453ff" stop-opacity="0"/>
+                  </radialGradient>
+                  <path id="turtle-electric-rays" d="M17 20 L9 15 L12 11 L2 7 M30 11 L26 5 L29 2 L24 -5 M52 12 L58 6 L55 3 L63 -2 M65 23 L74 17 L78 18 L87 12 M9 27 L4 25 L0 28 L-7 25" stroke-linecap="round" stroke-linejoin="round"/>
+                </defs>
+                <g class="turtle-body-glow">
+                  <ellipse cx="38" cy="21" rx="43" ry="23" fill="url(#turtleGlow)"/>
+                  <use href="#turtle-electric-rays" stroke="#8152ed" stroke-width="4.2" opacity=".35"/>
+                  <use href="#turtle-electric-rays" stroke="#00bfcc" stroke-width="2.35"/>
+                  <use href="#turtle-electric-rays" stroke="#d9fff7" stroke-width=".95"/>
+                  <path d="M11 18 L5 15 M38 8 L38 1 M63 16 L70 10 M74 27 L83 24" stroke="#fff1a8" stroke-width="2.1" stroke-linecap="round"/>
+                </g>
+                <!-- Soft Ground Shadow -->
+                <ellipse cx="36" cy="42.1" rx="33" ry="3.6" fill="url(#turtle-shadow)"/>
+                <g fill="#1f3326" opacity=".24">
+                  <ellipse cx="19" cy="42" rx="5.1" ry=".95"/>
+                  <ellipse cx="51" cy="41.6" rx="5.3" ry=".9"/>
+                </g>
+                <!-- Tapered Realistic Tail -->
+                <path d="M12 31 C8 32 5 34 3 35 C6 36 10 35 14 34 Z" fill="url(#skinGrad)" stroke="#2f3a1c" stroke-width="1"/>
+                <!-- Far-side Legs (Depth) -->
+                <path d="M23 31 C22 36 23 40 26 40 C28 40 29 37 29 32 Z" fill="#46542c" stroke="#2b361a" stroke-width="1"/>
+                <path d="M44 31 C44 36 45 40 48 40 C50 40 51 37 50 32 Z" fill="#46542c" stroke="#2b361a" stroke-width="1"/>
+                <!-- Stationary neck, with the face layered over it so it can turn -->
+                <path d="M53 27 C58 27 62 24 68 23 L71 28.5 C67 29 64 30.5 60 31 L53 32 Z" fill="url(#skinGrad)" stroke="#2f3a1c" stroke-width="1.2" stroke-linejoin="round"/>
                 <path d="M58 27.5 Q59 29.5 58 31 M62 26 Q63 28.2 62 30" stroke="#394722" stroke-width="0.9" stroke-linecap="round" opacity="0.65"/>
-                <!-- Eye with Brow & Catchlight -->
-                <path d="M71.5 21.3 Q73.8 20.3 75.5 21.5" stroke="#33401e" stroke-width="1" stroke-linecap="round"/>
-                <circle cx="73.6" cy="22.8" r="1.5" fill="#14180d"/>
-                <circle cx="74.1" cy="22.3" r="0.45" fill="#ffffff"/>
-                <!-- Tiny Nostril & Beak Line -->
-                <circle cx="78" cy="23.5" r="0.55" fill="#2b361a"/>
-                <path d="M73 26.8 Q76.5 27.2 79 26.1" stroke="#2f3a1c" stroke-width="0.95" stroke-linecap="round"/>
-              </g>
-              <!-- Near-side Hind Leg with Subtle Claws -->
-              <g class="turtle-leg-back">
-                <path d="M15 30 C13 35 14 41 19 41.5 C23 41.8 25 38 24 31 Z" fill="url(#skinGrad)" stroke="#2f3a1c" stroke-width="1.2"/>
-                <path d="M16 40.5 L15 42 M18.5 41 L18 42.3 M21 40.8 L21.2 42" stroke="#d4c79e" stroke-width="1.1" stroke-linecap="round"/>
-              </g>
-              <!-- Near-side Front Leg with Subtle Claws -->
-              <g class="turtle-leg-front">
-                <path d="M46 30 C45 35 46.5 41 51.5 41.5 C55 41.8 56.5 38 54.5 31 Z" fill="url(#skinGrad)" stroke="#2f3a1c" stroke-width="1.2"/>
-                <path d="M51 41 L51.8 42.3 M53.5 40.5 L54.6 41.8 M55 39.2 L56.2 40.2" stroke="#d4c79e" stroke-width="1.1" stroke-linecap="round"/>
-              </g>
-              <!-- Plastron (Pale Warm Underbelly) -->
-              <path d="M13 31 C22 33.5 46 33.5 55 31 L54 28.5 L14 28.5 Z" fill="#cfc093" stroke="#4f4226" stroke-width="1.1"/>
-              <!-- Realistic Domed Tortoise Carapace -->
-              <path d="M10 30 C10.5 14.5 20.5 7 34 7 C47 7 56.5 14.5 57.5 30 C46 31.8 21 31.8 10 30 Z" fill="url(#shellGrad)" stroke="#2c351a" stroke-width="1.4" stroke-linejoin="round"/>
-              <!-- Vertebral & Costal Scutes (Natural Earthy Hexagonal Pattern) -->
-              <polygon points="27,10.5 40,10.5 43,17 24,17" fill="#7c683d" stroke="#2e371c" stroke-width="1"/>
-              <polygon points="16,18 24,17 22,25.5 12.5,25" fill="#636d39" stroke="#2e371c" stroke-width="1"/>
-              <polygon points="24,17 43,17 45,25.5 22,25.5" fill="#6f6338" stroke="#2e371c" stroke-width="1"/>
-              <polygon points="43,17 51,18 54.5,25 45,25.5" fill="#636d39" stroke="#2e371c" stroke-width="1"/>
-              <!-- Warm Ochre Scute Centers (Authentic Tortoise Look) -->
-              <ellipse cx="33.5" cy="13.8" rx="4.2" ry="1.8" fill="#a89056" opacity="0.6"/>
-              <ellipse cx="33.5" cy="21.2" rx="6" ry="2.2" fill="#9c864e" opacity="0.5"/>
-              <ellipse cx="18" cy="21.3" rx="3" ry="1.8" fill="#9c864e" opacity="0.45"/>
-              <ellipse cx="49" cy="21.3" rx="3" ry="1.8" fill="#9c864e" opacity="0.45"/>
-              <!-- Marginal Rim Scutes -->
-              <path d="M11 27.5 Q34 29.5 56.5 27.5" stroke="#2c351a" stroke-width="1.1"/>
-              <path d="M19 26.2 V30.3 M27 26.8 V30.8 M35 27 V31 M43 26.8 V30.8 M50 26.2 V30.2" stroke="#2c351a" stroke-width="0.9" opacity="0.8"/>
-              <!-- Soft Dorsal Highlight -->
-              <path d="M23 9.8 Q34 7.8 44 10" stroke="#c8b989" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
-            </svg>
+                <path class="turtle-feeding-neck" d="M53 27 C59 26 64 28 71 30 L73 37 C65 37 61 32 53 32 Z" fill="url(#skinGrad)" stroke="#2f3a1c" stroke-width="1.2" stroke-linejoin="round"/>
+                <g class="turtle-head-group">
+                  <path d="M64 24 C66 20.5 70 18.6 74 19.3 C78 19.9 80.5 22 80 25 C79.8 28.1 76.6 29.7 72.3 29.5 C67.9 29.2 63 27.4 64 24 Z" fill="url(#skinGrad)" stroke="#2f3a1c" stroke-width="1.2" stroke-linejoin="round"/>
+                  <!-- Eye with Brow & Catchlight -->
+                  <path d="M71.5 21.3 Q73.8 20.3 75.5 21.5" stroke="#33401e" stroke-width="1" stroke-linecap="round"/>
+                  <ellipse cx="73.6" cy="22.9" rx="2.1" ry="1.95" fill="#dfc784"/>
+                  <circle cx="73.6" cy="22.8" r="1.48" fill="#172820"/>
+                  <circle cx="73.15" cy="22.15" r=".50" fill="#fffdea"/>
+                  <path d="M65.6 25.4 Q68.1 28.3 71.8 28.1" stroke="#d0dc99" stroke-width=".8" stroke-linecap="round"/>
+                  <!-- Tiny Nostril & Beak Line -->
+                  <circle cx="78" cy="23.5" r="0.55" fill="#2b361a"/>
+                  <path d="M73 26.8 Q76.5 27.2 79 26.1" stroke="#2f3a1c" stroke-width="0.95" stroke-linecap="round"/>
+                </g>
+                <!-- Near-side Hind Leg with Subtle Claws -->
+                <g class="turtle-leg-back">
+                  <path d="M15 30 C13 35 14 41 19 41.5 C23 41.8 25 38 24 31 Z" fill="url(#skinGrad)" stroke="#2f3a1c" stroke-width="1.2"/>
+                  <path d="M16.4 34.5 Q18 35.4 19.1 34.7 M15.8 37 Q17.2 38 18.9 37.4" stroke="#d4d995" stroke-width=".85" stroke-linecap="round"/>
+                  <path d="M16 40.5 L15 42 M18.5 41 L18 42.3 M21 40.8 L21.2 42" stroke="#d4c79e" stroke-width="1.1" stroke-linecap="round"/>
+                </g>
+                <!-- Near-side Front Leg with Subtle Claws -->
+                <g class="turtle-leg-front">
+                  <path d="M46 30 C45 35 46.5 41 51.5 41.5 C55 41.8 56.5 38 54.5 31 Z" fill="url(#skinGrad)" stroke="#2f3a1c" stroke-width="1.2"/>
+                  <path d="M47.9 34.6 Q49.5 35.4 51 34.5 M48.5 37.3 Q50.2 38.2 51.9 37.4" stroke="#d4d995" stroke-width=".85" stroke-linecap="round"/>
+                  <path d="M51 41 L51.8 42.3 M53.5 40.5 L54.6 41.8 M55 39.2 L56.2 40.2" stroke="#d4c79e" stroke-width="1.1" stroke-linecap="round"/>
+                </g>
+                <!-- Plastron (Pale Warm Underbelly) -->
+                <path d="M13 31 C22 33.5 46 33.5 55 31 L54 28.5 L14 28.5 Z" fill="#cfc093" stroke="#4f4226" stroke-width="1.1"/>
+                <!-- The foreshortened plates curve around the dome and share a single light source. -->
+                <g id="turtle-shell-fallback">
+                <use href="#turtle-dome" fill="url(#shellGrad)" stroke="#383e27" stroke-width="1.25"/>
+                <g clip-path="url(#turtle-dome-clip)">
+                  <g fill="url(#turtle-scute)" stroke="#504b2c" stroke-width=".85" stroke-linejoin="round">
+                    <path d="M10 17 Q15 9 21 7 L24 10.5 L20.4 15.4 L13.7 19 Z"/>
+                    <path d="M21 7 Q28 3.4 35 4.8 L37.2 9.4 Q30.3 10.7 24 10.5 Z"/>
+                    <path d="M35 4.8 Q44.4 6 49.7 11.4 L45.7 14.2 L39.6 12.6 L37.2 9.4 Z"/>
+                    <path d="M8.4 25.7 L13.7 19 L20.4 15.4 L22.1 21.1 Q18.9 24.4 13.8 26.8 Z"/>
+                    <path d="M20.4 15.4 L24 10.5 Q30 10.9 37.2 9.4 L39.6 12.6 L37.2 18.7 Q30.2 21.5 22.1 21.1 Z"/>
+                    <path d="M39.6 12.6 L45.7 14.2 L49.7 11.4 L54.1 16.2 L52.3 21.7 L44.8 23.3 L37.2 18.7 Z"/>
+                    <path d="M13.8 26.8 Q19 24.7 22.1 21.1 Q30.5 21.6 37.2 18.7 L44.8 23.3 L42.7 27.7 Q31.5 30.2 20.5 29.3 Z"/>
+                    <path d="M44.8 23.3 L52.3 21.7 L54.1 16.2 L59 24.5 Q52.2 28 42.7 27.7 Z"/>
+                  </g>
+                  <path d="M22.7 15.1 L25.3 12.2 Q30.1 12.5 35.6 11.1 M24 23 Q30.3 23.4 36.7 20.8 M14.6 20.3 L19 17.8 M40.7 14.4 L45.5 15.8" stroke="#fbe3a4" stroke-width=".85" opacity=".74" stroke-linecap="round"/>
+                  <use href="#turtle-dome" fill="url(#turtle-shell-shade)"/>
+                  <g class="turtle-shell-sheen">
+                    <ellipse cx="25" cy="10" rx="13.7" ry="4.6" transform="rotate(-16 25 10)" fill="url(#turtle-sheen)"/>
+                  </g>
+                  <path d="M8 25.5 C18 31.3 43.8 31.7 58.7 23.6 L60 28 C46 36 19.4 36 7 30 Z" fill="url(#turtle-rim)" stroke="#48452b" stroke-width=".8"/>
+                  <path d="M10 26.8 C21.6 32 44.4 31 56.3 25.8" stroke="#f6db98" stroke-width=".78"/>
+                  <path d="M14 28.7 L13.3 31 M21.3 30.4 L21 32.8 M30 31 L30.2 33.6 M39 30.7 L39.8 33 M47.5 29 L48.4 31.5 M54.4 26.9 L55.5 28.9" stroke="#575031" stroke-width=".8"/>
+                </g>
+                <path d="M10 22 C13 11.6 21.2 5.1 31.1 4.8 Q39.2 4.4 45.9 8.5" stroke="#ffdaa0" stroke-width=".9" stroke-linecap="round" opacity=".92"/>
+                </g>
+                <g id="turtle-shell-model"></g>
+                <g class="turtle-shell-crumb">
+                  <ellipse cx="32" cy="12" rx="9" ry="7.5" fill="url(#turtle-neon-halo)"/>
+                  <path d="M32 5.9 Q32.7 10.9 37.4 12 Q32.9 12.8 32 18.1 Q31.1 13 26.6 12 Q31.4 11.1 32 5.9Z" fill="#e4fffa" stroke="#04e7d3" stroke-width=".9" stroke-linejoin="round"/>
+                  <circle cx="32" cy="12" r="1.45" fill="#fffde0"/>
+                  <path d="M38.2 7.3 L38.8 5.9 M25.3 15.8 L24.2 16.7" stroke="#6cfff2" stroke-width=".95" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Navigation Tabs for Pages 2, 3, and 4 (excluding Page 1, each with a concise multi-word descriptor) -->
       <nav class="header-page-tabs" aria-label="تب‌های صفحات سطوح قالب‌ها">
-        <button type="button" id="tab-beginner" class="page-tab-btn" data-tier="beginner" onclick="goToPage('beginner')">
+        <button type="button" id="tab-beginner" class="page-tab-btn raised-card" data-tier="beginner" onclick="goToPage('beginner')">
           <div class="tab-text-group">
             <span class="tab-title-line">صفحه ۲ · قالب‌های مبتدی</span>
             <span class="tab-descriptor">شروع سریع، خلاصه‌سازی و یادگیری فعال</span>
@@ -2579,7 +2846,7 @@
           <span class="tab-badge beginner">۹ قالب</span>
         </button>
 
-        <button type="button" id="tab-intermediate" class="page-tab-btn" data-tier="intermediate" onclick="goToPage('intermediate')">
+        <button type="button" id="tab-intermediate" class="page-tab-btn raised-card" data-tier="intermediate" onclick="goToPage('intermediate')">
           <div class="tab-text-group">
             <span class="tab-title-line">صفحه ۳ · قالب‌های متوسط</span>
             <span class="tab-descriptor">مقایسه متقاطع، سنتز جامع و تحلیل فنی</span>
@@ -2587,7 +2854,7 @@
           <span class="tab-badge intermediate">۱۸ قالب</span>
         </button>
 
-        <button type="button" id="tab-advanced" class="page-tab-btn" data-tier="advanced" onclick="goToPage('advanced')">
+        <button type="button" id="tab-advanced" class="page-tab-btn raised-card" data-tier="advanced" onclick="goToPage('advanced')">
           <div class="tab-text-group">
             <span class="tab-title-line">صفحه ۴ · قالب‌های پیشرفته</span>
             <span class="tab-descriptor">واسازی فرضیات، نقد عمیق و تحلیل شکاف</span>
@@ -2753,7 +3020,7 @@
 
         <!-- 3-Card Static Magnified Showcase Strip (All 3 sections visible side by side) -->
         <div class="nlm-sections-strip">
-          <article class="nlm-part-card is-active" id="nlm-strip-sources" onclick="selectNlmSection('sources')">
+          <article class="nlm-part-card raised-card is-active" id="nlm-strip-sources" onclick="selectNlmSection('sources')">
             <div class="nlm-part-thumb" id="thumb-sources"></div>
             <h3 class="nlm-part-title">
               <span>۱. پنل منابع (<bdi dir="ltr">Sources</bdi>)</span>
@@ -2764,7 +3031,7 @@
             </p>
           </article>
 
-          <article class="nlm-part-card" id="nlm-strip-chat" onclick="selectNlmSection('chat')">
+          <article class="nlm-part-card raised-card" id="nlm-strip-chat" onclick="selectNlmSection('chat')">
             <div class="nlm-part-thumb" id="thumb-chat"></div>
             <h3 class="nlm-part-title">
               <span>۲. پنل گفت‌وگو (<bdi dir="ltr">Chat</bdi>)</span>
@@ -2775,7 +3042,7 @@
             </p>
           </article>
 
-          <article class="nlm-part-card" id="nlm-strip-studio" onclick="selectNlmSection('studio')">
+          <article class="nlm-part-card raised-card" id="nlm-strip-studio" onclick="selectNlmSection('studio')">
             <div class="nlm-part-thumb" id="thumb-studio"></div>
             <h3 class="nlm-part-title">
               <span>۳. پنل استودیو (<bdi dir="ltr">Studio</bdi>)</span>
@@ -2854,7 +3121,7 @@
 
         <!-- Weak vs Engineered Prompt Visual Comparison -->
         <div class="prompt-compare-grid">
-          <div class="prompt-compare-card weak">
+          <div class="prompt-compare-card raised-card weak">
             <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
               <strong style="color:var(--danger); font-size:0.95rem;">پرامپت ساده و مبهم (بدون مهندسی)</strong>
               <span class="index-num" style="color:var(--danger);">خروجی سطحی</span>
@@ -2867,7 +3134,7 @@
             </p>
           </div>
 
-          <div class="prompt-compare-card strong">
+          <div class="prompt-compare-card raised-card strong">
             <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
               <strong style="color:var(--tier-beginner); font-size:0.95rem;">پرامپت مهندسی‌شده (یا استفاده از قالب آماده)</strong>
               <span class="tier-badge beginner">خروجی دقیق و اجرایی</span>
@@ -2883,7 +3150,7 @@
 
         <!-- 4 Pillars of Prompt Engineering -->
         <div class="prompt-pillars-grid">
-          <div class="pillar-card">
+          <div class="pillar-card raised-card">
             <div class="pillar-icon-wrap">
               <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
             </div>
@@ -2891,7 +3158,7 @@
             <p class="pillar-desc">مشخص کردن اینکه مدل از نگاه پژوهشگر، معمار سیستم، منتقد یا مدرس به منابع نگاه کند، عمق واژگان و تحلیل را دگرگون می‌سازد.</p>
           </div>
 
-          <div class="pillar-card">
+          <div class="pillar-card raised-card">
             <div class="pillar-icon-wrap" style="color:var(--tier-beginner);">
               <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             </div>
@@ -2899,7 +3166,7 @@
             <p class="pillar-desc">تعیین دقیق مسئله و علایق شما باعث می‌شود مدل به‌جای تکرار بدیهیات، دقیقاً به بخش‌های کلیدی اسناد نفوذ کند.</p>
           </div>
 
-          <div class="pillar-card">
+          <div class="pillar-card raised-card">
             <div class="pillar-icon-wrap" style="color:var(--tier-advanced);">
               <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
             </div>
@@ -2907,7 +3174,7 @@
             <p class="pillar-desc">درخواست جدول مقایسه، نقشه راه گام‌به‌گام، چک‌لیست اجرایی یا سناریوی پادکست، خروجی را فوراً قابل استفاده می‌کند.</p>
           </div>
 
-          <div class="pillar-card">
+          <div class="pillar-card raised-card">
             <div class="pillar-icon-wrap" style="color:var(--accent-gold-ink);">
               <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
@@ -2944,7 +3211,7 @@
 
         <div class="builtin-tiers-grid">
           <!-- Beginner Overview Card -->
-          <article class="tier-overview-card" data-tier="beginner">
+          <article class="tier-overview-card raised-card" data-tier="beginner">
             <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
               <span class="tier-badge beginner">صفحه ۲ · سطح مبتدی</span>
               <strong style="font-size:1.1rem; color:var(--tier-beginner);">۹ قالب (۲۶٪)</strong>
@@ -2964,7 +3231,7 @@
           </article>
 
           <!-- Intermediate Overview Card -->
-          <article class="tier-overview-card" data-tier="intermediate">
+          <article class="tier-overview-card raised-card" data-tier="intermediate">
             <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
               <span class="tier-badge intermediate">صفحه ۳ · سطح متوسط</span>
               <strong style="font-size:1.1rem; color:var(--tier-intermediate);">۱۸ قالب (۵۳٪)</strong>
@@ -2984,7 +3251,7 @@
           </article>
 
           <!-- Advanced Overview Card -->
-          <article class="tier-overview-card" data-tier="advanced">
+          <article class="tier-overview-card raised-card" data-tier="advanced">
             <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
               <span class="tier-badge advanced">صفحه ۴ · سطح پیشرفته</span>
               <strong style="font-size:1.1rem; color:var(--tier-advanced);">۷ قالب (۲۱٪)</strong>
@@ -3946,7 +4213,7 @@
             const inWorkflow = appState.workflow.some(function(w) { return w.id === item.id; });
             const safeLatin = item.latin.replace(/'/g, `\\'`);
             html += `
-              <article class="template-detail-card" data-tier="${item.level}">
+              <article class="template-detail-card raised-card" data-tier="${item.level}">
                 <div class="tpl-card-top">
                   <div class="tpl-title-meta">
                     <div class="card-header-row">
@@ -4430,74 +4697,276 @@
       }
     }
 
-    let turtleRafId = null;
-
-    function startRealisticTurtle() {
-      const track = document.getElementById(`turtle-track`);
-      const walker = document.getElementById(`turtle-walker`);
-      if (!track || !walker) return;
-      if (window.matchMedia && window.matchMedia(`(prefers-reduced-motion: reduce)`).matches) return;
-
-      if (turtleRafId) cancelAnimationFrame(turtleRafId);
-
-      let x = 10;
-      let dir = 1; // 1 = left->right, -1 = right->left
-      const speedPxPerSec = 11.5; // Calm, genuinely slow tortoise pace
-      let lastTs = null;
-      let pausedUntil = 0;
-      let nextPauseAt = performance.now() + 5500 + Math.random() * 4500;
-
-      function tick(ts) {
-        if (lastTs === null) lastTs = ts;
-        const dt = Math.min((ts - lastTs) / 1000, 0.1);
-        lastTs = ts;
-
-        const maxX = Math.max(track.clientWidth - 52, 20);
-
-        if (ts < pausedUntil) {
-          walker.classList.add(`is-paused`);
-        } else {
-          walker.classList.remove(`is-paused`);
-          if (ts >= nextPauseAt) {
-            // Short natural tortoise pause (1.6s to 2.6s)
-            pausedUntil = ts + 1600 + Math.random() * 1000;
-            nextPauseAt = pausedUntil + 6000 + Math.random() * 5500;
-            walker.classList.add(`is-paused`);
-          } else {
-            x += dir * speedPxPerSec * dt;
-            if (x >= maxX) {
-              x = maxX;
-              dir = -1;
-              walker.classList.add(`is-facing-left`);
-              pausedUntil = ts + 1500;
-              nextPauseAt = pausedUntil + 6000 + Math.random() * 5000;
-            } else if (x <= 10) {
-              x = 10;
-              dir = 1;
-              walker.classList.remove(`is-facing-left`);
-              pausedUntil = ts + 1500;
-              nextPauseAt = pausedUntil + 6000 + Math.random() * 5000;
-            }
-            walker.style.transform = `translateX(${x.toFixed(1)}px)`;
-          }
-        }
-
-        turtleRafId = requestAnimationFrame(tick);
-      }
-
-      walker.style.transform = `translateX(${x}px)`;
-      turtleRafId = requestAnimationFrame(tick);
-    }
-
     function initApp() {
       loadPersistedState();
       applyTheme(appState.theme);
       renderActivePage();
-      startRealisticTurtle();
     }
 
     document.addEventListener(`DOMContentLoaded`, initApp);
     window.addEventListener(`resize`, function() { requestAnimationFrame(updateDynamicAppleFiller); });
+  </script>
+  <script>
+    (function renderTurtleShell() {
+      const walker = document.getElementById('turtle-walker');
+      const model = document.getElementById('turtle-shell-model');
+      const animations = [];
+      const svg = (tag, attributes) => {
+        const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
+        for (const [key, value] of Object.entries(attributes)) node.setAttribute(key, value);
+        return node;
+      };
+      const supportsMorph = typeof model.animate === 'function' && CSS.supports('d', 'path("M0 0 L1 1")');
+
+      // Longitude follows the spine. Latitude runs from the far rim over the crest to the near rim.
+      function domePoint([u, v], raise = 0) {
+        const longitude = u * Math.PI / 2;
+        const latitude = v * Math.PI / 2;
+        const section = Math.cos(longitude);
+        return [25.5 * Math.sin(longitude), 15.2 * section * Math.sin(latitude),
+                (22.6 + raise) * section * Math.cos(latitude)];
+      }
+
+      function project([x, depth, height], pose) {
+        const yaw = -0.32 + 0.23 * pose;
+        const pitch = 0.39 - 0.065 * pose;
+        const horizontal = x * Math.cos(yaw) - depth * Math.sin(yaw);
+        const forward = x * Math.sin(yaw) + depth * Math.cos(yaw);
+        return [(33.8 + horizontal).toFixed(2),
+                (26.7 + forward * Math.sin(pitch) - height * Math.cos(pitch)).toFixed(2)];
+      }
+
+      function projectedPath(points, attributes, close = true) {
+        const outline = pose => 'M' + points.map(point => project(point, pose).join(' ')).join(' L') + (close ? ' Z' : '');
+        const node = svg('path', { d: outline(0), 'stroke-linejoin': 'round', ...attributes });
+        model.appendChild(node);
+        if (supportsMorph) {
+          const frames = [-1, 0, 1].map(pose => ({ d: 'path("' + outline(pose) + '")' }));
+          const motion = node.animate(frames, { duration: 2300, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+          motion.pause();
+          animations.push(motion);
+        }
+      }
+
+      // Sample the curved edges before projection so that each shield hugs the dome.
+      function contour(vertices, center, scale, raise) {
+        const points = [];
+        for (let i = 0; i < vertices.length; i++) {
+          const a = vertices[i], b = vertices[(i + 1) % vertices.length];
+          for (let j = 0; j < 5; j++) {
+            const uv = a.map((value, axis) => center[axis] + scale * (value + (b[axis] - value) * j / 5 - center[axis]));
+            points.push(domePoint(uv, raise));
+          }
+        }
+        return points;
+      }
+
+      const cuts = [-1, -0.60, -0.19, 0.23, 0.63, 1];
+      const plates = [];
+      const addPlate = (vertices, gold) => {
+        const center = [0, 1].map(axis => vertices.reduce((sum, p) => sum + p[axis], 0) / vertices.length);
+        const [x, depth, height] = domePoint(center);
+        plates.push({ vertices, center, gold, painterDepth: depth * 0.88 - x * 0.28 + height * 0.38 });
+      };
+      for (let i = 0; i < cuts.length - 1; i++) {
+        const a = cuts[i], b = cuts[i + 1], inset = (b - a) * 0.22;
+        addPlate([[a, 0], [a + inset, -0.41], [b - inset, -0.41], [b, 0],
+                  [b - inset, 0.41], [a + inset, 0.41]], true);
+      }
+      for (const side of [-1, 1]) {
+        for (let i = 0; i < cuts.length; i++) {
+          const u = cuts[i], before = cuts[Math.max(0, i - 1)], after = cuts[Math.min(cuts.length - 1, i + 1)];
+          const a = (before + u) / 2, b = (after + u) / 2, v = side * 0.41;
+          const crest = [[u, 0]];
+          if (a < u) crest.unshift([a, v], [u - (u - before) * 0.22, v]);
+          if (b > u) crest.push([u + (after - u) * 0.22, v], [b, v]);
+          addPlate([...crest, [b, side], [a, side]], false);
+        }
+      }
+
+      const defs = svg('defs', {});
+      model.appendChild(defs);
+      plates.sort((a, b) => a.painterDepth - b.painterDepth).forEach((plate, index) => {
+        const { vertices, center, gold } = plate;
+        const [x, depth, height] = domePoint(center);
+        const normal = [x / 25.5 ** 2, depth / 15.2 ** 2, height / 22.6 ** 2];
+        const light = Math.max(0, (-0.44 * normal[0] - 0.14 * normal[1] + 0.89 * normal[2]) / Math.hypot(...normal));
+        const color = delta => 'hsl(' + (gold ? 43 : 131 - 54 * light) + ' ' +
+          (gold ? 54 : 30) + '% ' + Math.max(12, 21 + 39 * light + delta) + '%)';
+        const gradientId = 'turtle-plate-light-' + index;
+        const gradient = svg('radialGradient', { id: gradientId, cx: '32%', cy: '16%', r: '93%' });
+        for (const [offset, delta] of [[0, 19], [0.40, 5], [0.83, -9], [1, -15]]) {
+          gradient.appendChild(svg('stop', { offset, 'stop-color': color(delta) }));
+        }
+        defs.appendChild(gradient);
+        projectedPath(contour(vertices, center, 1, 0), { fill: color(-12), stroke: '#293e30', 'stroke-width': 0.7 });
+        projectedPath(contour(vertices, center, 0.86, 1.0), { fill: 'url(#' + gradientId + ')', stroke: color(3), 'stroke-width': 0.48 });
+      });
+
+      // A segmented lip has an actual vertical face below the near edge of the shell.
+      const rimPoint = (angle, height) => [25.5 * Math.cos(angle), 15.2 * Math.sin(angle), height];
+      for (let i = 0; i < 16; i++) {
+        const a = (i - 1) * Math.PI / 14, b = i * Math.PI / 14;
+        const top = [rimPoint(a, 0.8), rimPoint((a + b) / 2, 0.8), rimPoint(b, 0.8)];
+        projectedPath([...top, rimPoint(b, -2.6), rimPoint(a, -2.6)], {
+          fill: 'url(#turtle-rim)', stroke: '#443c26', 'stroke-width': 0.5
+        });
+        projectedPath(top, { fill: 'none', stroke: '#f4cf80', 'stroke-width': 0.72 }, false);
+      }
+
+      document.getElementById('turtle-shell-fallback').style.display = 'none';
+      if (!animations.length) return;
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let rocking = false;
+      function syncShellMotion() {
+        const shouldRock = !document.hidden && !reduced.matches && !walker.classList.contains('is-paused');
+        if (shouldRock === rocking) return;
+        rocking = shouldRock;
+        for (const animation of animations) rocking ? animation.play() : animation.pause();
+      }
+      new MutationObserver(syncShellMotion).observe(walker, { attributes: true, attributeFilter: ['class'] });
+      document.addEventListener('visibilitychange', syncShellMotion);
+      reduced.addEventListener('change', syncShellMotion);
+      syncShellMotion();
+    }());
+  </script>
+  <script>
+    (function initTurtle() {
+      const track = document.getElementById(`turtle-track`);
+      const walker = document.getElementById(`turtle-walker`);
+      const bread = document.getElementById(`turtle-bread`);
+      const toggle = document.getElementById(`turtle-motion-toggle`);
+      const reducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`);
+      const speedPxPerSec = 24;
+      const mealDuration = 6200;
+      track.style.setProperty(`--turtle-meal-duration`, `${mealDuration}ms`);
+
+      let frameId = null;
+      let x = 0;
+      let maxX = 0;
+      let direction = 1;
+      let lastTs = null;
+      let pausedUntil = 0;
+      let nextPauseAt = 0;
+      let activeRest = null;
+      let nextRest = `eat`;
+      let mealStopX = null;
+
+      function serveBread(stopX) {
+        mealStopX = stopX;
+        // The lowered beak sits four viewBox units behind the leading edge.
+        const biteOverlap = 4 * walker.offsetWidth / 84 + bread.clientWidth / 3;
+        const walkerLeft = walker.offsetLeft + stopX;
+        const foodOffset = direction > 0 ? walker.offsetWidth - biteOverlap : biteOverlap - bread.clientWidth;
+        bread.style.left = `${walkerLeft + foodOffset}px`;
+        bread.classList.toggle(`is-on-left`, direction < 0);
+        bread.classList.add(`is-served`);
+      }
+
+      function clearMeal() {
+        mealStopX = null;
+        bread.classList.remove(`is-served`, `is-being-eaten`);
+      }
+
+      function beginRest(activity, ts, duration) {
+        activeRest = activity;
+        pausedUntil = ts + duration;
+        nextRest = activity === `eat` ? `look-back` : `eat`;
+        nextPauseAt = pausedUntil + 6000 + Math.random() * 5500;
+      }
+
+      function walk(ts, dt) {
+        const endX = direction > 0 ? maxX : 0;
+        if (mealStopX === null && ts >= nextPauseAt) {
+          if (nextRest === `look-back`) {
+            beginRest(`look-back`, ts, 1600 + Math.random() * 1000);
+            return;
+          }
+
+          // Leave enough room to approach the bread before reaching the end of the track.
+          const endMargin = Math.min(8, maxX / 4);
+          const approachDistance = Math.min(38, Math.abs(endX - x) - endMargin);
+          if (approachDistance >= Math.min(16, maxX / 2)) {
+            serveBread(x + direction * approachDistance);
+          }
+        }
+
+        const targetX = mealStopX ?? endX;
+        const step = speedPxPerSec * dt;
+        x = direction > 0 ? Math.min(targetX, x + step) : Math.max(targetX, x - step);
+        if (x !== targetX) return;
+
+        if (mealStopX !== null) {
+          beginRest(`eat`, ts, mealDuration);
+          bread.classList.add(`is-being-eaten`);
+          return;
+        }
+
+        direction *= -1;
+        walker.classList.toggle(`is-facing-left`, direction < 0);
+        pausedUntil = ts + 1500;
+      }
+
+      function tick(ts) {
+        const dt = lastTs === null ? 0 : Math.min((ts - lastTs) / 1000, 0.1);
+        lastTs = ts;
+
+        if (ts >= pausedUntil && maxX > 0) {
+          if (activeRest === `eat`) clearMeal();
+          activeRest = null;
+          walk(ts, dt);
+        }
+
+        const resting = ts < pausedUntil && maxX > 0;
+        walker.classList.toggle(`is-paused`, resting || maxX === 0);
+        walker.classList.toggle(`is-eating`, resting && activeRest === `eat`);
+        // Let the head face forward again before the turtle starts walking.
+        walker.classList.toggle(`is-looking-back`, resting && activeRest === `look-back` && ts < pausedUntil - 300);
+        walker.style.transform = `translateX(${x.toFixed(1)}px)`;
+        frameId = requestAnimationFrame(tick);
+      }
+
+      function setRunning(running) {
+        if (frameId !== null) cancelAnimationFrame(frameId);
+        frameId = null;
+        lastTs = null;
+        activeRest = null;
+        clearMeal();
+        walker.classList.remove(`is-eating`, `is-looking-back`);
+        toggle.classList.toggle(`is-running`, running);
+        walker.classList.toggle(`is-paused`, !running);
+        const label = running ? `توقف حرکت لاک‌پشت` : `پخش حرکت لاک‌پشت`;
+        toggle.setAttribute(`aria-label`, label);
+        toggle.title = label;
+        if (running) {
+          pausedUntil = 0;
+          nextPauseAt = performance.now() + 3800 + Math.random() * 1500;
+          frameId = requestAnimationFrame(tick);
+        }
+      }
+
+      toggle.addEventListener(`click`, function() { setRunning(frameId === null); });
+      reducedMotion.addEventListener(`change`, function(event) { setRunning(!event.matches); });
+      toggle.hidden = false;
+      new ResizeObserver(function() {
+        maxX = Math.max(0, track.clientWidth - walker.offsetWidth - 2 * walker.offsetLeft);
+        if (mealStopX !== null && (mealStopX > maxX || maxX === 0)) {
+          clearMeal();
+          activeRest = null;
+          pausedUntil = 0;
+          nextRest = `eat`;
+          nextPauseAt = performance.now() + 1200;
+          walker.classList.remove(`is-eating`);
+        } else if (mealStopX !== null) {
+          serveBread(mealStopX);
+        }
+        if (x > maxX) {
+          x = maxX;
+          walker.style.transform = `translateX(${x.toFixed(1)}px)`;
+        }
+      }).observe(track);
+      setRunning(!reducedMotion.matches);
+    }());
   </script>
 </body>
 </html>
